@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>店家管理平台</title>
+
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/order_history.css"/>
+    <script type="text/javascript" src="../javascript/showtime.js"></script>
+
+</head>
+<body>
+
+    <div id="top">
+
+        <div id="header">
+            <img id="logo" src="../image/top.png">
+            <h2>商家管理平台</h2>
+
+            <div id="showtime"></div>
+            <!--login-->
+            <!--<a href="" id="">饱了吗</a>-->
+            <a href="" id="text_edit">退出</a>
+            <img id="img_exit" src="../image/exit.png">
+        </div>
+
+    </div>
+
+    <div id="main">
+
+        <div id="sidebar">
+            <ul><img src="../image/sub_account.png">
+                <div class="sidebar_title">管理</div>
+                <li><a href="">订单管理</a></li>
+                <li><a href="">商品管理</a></li>
+                <li><a href="">用户管理</a></li>
+                <li><a href="">历史订单</a></li>
+            </ul>
+
+            <ul><img src="../image/record.png">
+                <div class="sidebar_title">统计</div>
+                <li><a href="">用户分析</a> </li>
+                <li><a href="order_analyze.html">订单分析</a> </li>
+            </ul>
+
+            <ul>
+                <div class="sidebar_title">其他</div>
+                <li>...</li>
+            </ul>
+
+            <ul><img src="../image/setting.png">
+                <div class="sidebar_title">设置</div>
+                <li><a href="">个人信息</a> </li>
+                <li><a href="">平台信息</a> </li>
+            </ul>
+
+        </div>
+
+        <!--默认为订单信息表-->
+        <div id="content">
+            <h3>订单管理列表</h3>
+
+            <h4>搜索条件</h4>
+
+            <form action="" id="search">
+                <table>
+                    <tr>
+                        <td class="search_text"><input type="text" placeholder="请输入订单编号"></td>
+                        <td class="search_text"><input type="text" placeholder="请输入起始时间"></td>
+
+                        <td class="search_checkBox">
+                            <label>状态</label>
+                            <select>
+                                <option value="已付款">已付款</option>
+                                <option value="途中">途中</option>
+                                <option value="已送达">已送达</option>
+                                <option value="退单">退单</option>
+                            </select>
+                        </td>
+
+                        <td>其他</td>
+
+                        <td id="search_button"><input type="button" value="确定"></td>
+                    </tr>
+                </table>
+            </form>
+
+            <h4>订单信息</h4>
+            <!--链接数据库-->
+            <form action="" id="orderDetail">
+
+                <table>
+                    <tr id="orderDetail_title">
+                        <th>订单编号</th>
+                        <th>收件人</th>
+                        <th>联系方式</th>
+                        <th>送达地址</th>
+                        <th>下单时间</th>
+                        <th>合计价格</th>
+                        <th>内容</th>
+                        <th>状态</th>
+                        <th>...</th>
+                    </tr>
+
+                    <tr>
+                        <td>1234567890</td>
+                        <td>郑晨鑫</td>
+                        <td>15669032560</td>
+                        <td>浙江大学城市学院明德1</td>
+                        <td>2019-10-22 8:20:00</td>
+                        <td>20.0</td>
+                        <td>酸菜鱼</td>
+                        <td>已支付</td>
+                        <td>...</td>
+                    </tr>
+
+                </table>
+
+            </form>
+
+
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+
+    </div>
+
+</body>
+</html>
