@@ -4,60 +4,22 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/order_analyze.css"/>
 
     <script type="text/javascript" src="../javascript/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../javascript/showtime.js"></script>
     <script type="text/javascript" src="../javascript/order_analyze.js"></script>
 
 
 </head>
 <body>
-    <div id="top">
 
-        <div id="header">
-            <img id="logo" src="../image/top.png">
-            <h2>商家管理平台</h2>
-
-            <div id="showtime"></div>
-            <!--login-->
-            <!--<a href="" id="">饱了吗</a>-->
-            <a href="" id="text_edit">退出</a>
-            <img id="img_exit" src="../image/exit.png">
-        </div>
-
-    </div>
+    <div id="page1"></div>
+    <script>$("#page1").load("header.html")</script>
 
     <div id="main">
 
-        <div id="sidebar">
-            <ul><img src="../image/sub_account.png">
-                <div class="sidebar_title">管理</div>
-                <li><a href="">订单管理</a></li>
-                <li><a href="">商品管理</a></li>
-                <li><a href="">用户管理</a></li>
-                <li><a href="">历史订单</a></li>
-            </ul>
-
-            <ul><img src="../image/record.png">
-                <div class="sidebar_title">统计</div>
-                <li><a href="">用户分析</a> </li>
-                <li><a href="">订单分析</a> </li>
-            </ul>
-
-            <ul>
-                <div class="sidebar_title">其他</div>
-                <li>...</li>
-            </ul>
-
-            <ul><img src="../image/setting.png">
-                <div class="sidebar_title">设置</div>
-                <li><a href="">个人信息</a> </li>
-                <li><a href="">平台信息</a> </li>
-            </ul>
-
-        </div>
+        <div id="page2"></div>
+        <script>$("#page2").load("sidebar.html")</script>
 
         <div id="content">
 

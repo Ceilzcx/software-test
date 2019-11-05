@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="../css/oder_main.css"/>
+
+    <script type="text/javascript" src="../javascript/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../javascript/showtime.js"></script>
+
+</head>
+<body>
+
+    <div id="page1"></div>
+    <script>$("#page1").load("header.html")</script>
+
+    <div id="main">
+
+        <div id="page2"></div>
+        <script>$("#page2").load("sidebar.html")</script>
+
+        <div id="content">
+
+            <h3>今日订单</h3>
+
+            <div id="order_main_detail">
+
+                <h4>订单详情</h4>
+                <div id="showtime" onload="showTime()"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

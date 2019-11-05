@@ -23,6 +23,7 @@ $("#order_twoWeek_ago>img").click(function () {
 window.onload = function () {
     $("#order_week_ago").hide();
     $("#order_twoWeek_ago").hide();
+
 };
 
 function onclick_before() {
