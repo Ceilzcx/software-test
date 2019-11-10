@@ -57,13 +57,11 @@ function onclick_week() {
 function onclick_twoWeek() {
     var twoWeek = document.getElementById("order_indicator_twoWeek");
     twoWeek.className = "order_indicator_show";
-    $("#order_twoWeek_ago").show();
-
-    var before = document.getElementById("order_indicator_before");
-    before.className = "order_indicator_hidden";
-    $("#order_before").hide();
-
-    var week = document.getElementById("order_indicator_week");
-    week.className = "order_indicator_hidden";
-    $("#order_week_ago").hide();
+    if ($("#order_twoWeek_ago").css(display) == "none"){
+        $("#order_twoWeek_ago").css(display, "block");
+        $("#img_twoWeek").src = "../static/image/show_more.png";
+    }else {
+        $("#order_twoWeek_ago").css(display, "none");
+        $("#img_twoWeek").src = "../static/image/show_less.png";
+    }
 }

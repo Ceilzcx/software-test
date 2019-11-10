@@ -85,7 +85,7 @@
             <div class="order_indicator_hidden" id="order_indicator_twoWeek">
                 <div class="order_analyze_title">
                     <h4>15日订单指标</h4>
-                    <img src="../static/image/show_more.png" onclick="onclick_twoWeek()">
+                    <img id="img_twoWeek" src="../static/image/show_more.png" onclick="onclick_twoWeek()">
                 </div>
 
                 <div id="order_twoWeek_ago">
