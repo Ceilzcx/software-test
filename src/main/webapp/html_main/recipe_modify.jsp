@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" " http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=" http://www.w3.org/1999/xhtml">
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -55,6 +58,7 @@
                         <img src="" class="menu_img">
                     </div>
 
+
                     <script>
                         $("#recipe_image").change(function(){
                             $(".menu_img").attr("src",URL.createObjectURL($(this)[0].files[0]));
@@ -68,9 +72,11 @@
 
                 </fieldset>
 
+
             </form>
 
         </div>
+
     </div>
 
 </body>

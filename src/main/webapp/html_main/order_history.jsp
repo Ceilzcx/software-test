@@ -12,6 +12,9 @@
     <title>店家管理平台</title>
 
     <link rel="stylesheet" href="../static/css/order_history.css"/>
+
+    <script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
+
 </head>
 <body>
 

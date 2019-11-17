@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" " http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=" http://www.w3.org/1999/xhtml">
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -85,7 +88,7 @@
             <div class="order_indicator_hidden" id="order_indicator_twoWeek">
                 <div class="order_analyze_title">
                     <h4>15日订单指标</h4>
-                    <img id="img_twoWeek" src="../static/image/show_more.png" onclick="onclick_twoWeek()">
+                    <img src="../static/image/show_more.png" onclick="onclick_twoWeek()">
                 </div>
 
                 <div id="order_twoWeek_ago">
@@ -119,11 +122,26 @@
             </div>
 
         </div>
+
+        <!--<div id="*">
+            <div id="**">
+                <input type="date" value="2019-9-23">
+                <input type="date" value="2019-10-23">
+            </div>
+
+            <form>
+                <table>
+
+                </table>
+            </form>
+        </div>-->
+
+
     </div>
+
 
     <div id="footer">
 
     </div>
-
 </body>
 </html>
