@@ -34,9 +34,6 @@ public class ShopDAO {
             Query query = session.createQuery(hql);
             if (query.list().size() != 0) {
                 ShopEntity s = (ShopEntity) query.list().get(0);
-//                if (s.getShopPwd().equals(shopPwd) == false) {
-//                    throw new BaseException("密码错误");
-//                }
                 ShopEntity tmpShop = session.get(ShopEntity.class, s.getShopId());
                 tmpShop.setShopStatus("在线");
                 shop = tmpShop;
@@ -58,16 +55,17 @@ public class ShopDAO {
         return shop;
     }
 
-    public ShopEntity reg(String shopPwd, String shopTel) throws BaseException {
+    public ShopEntity reg(String shopPwd1, String shopPwd2,String shopTel) throws BaseException {
         /**
          *
          *
          * @description: 商家注册
-         * @param shopPwd
+         * @param shopPwd1
+         * @param shopPwd2
          * @param shopTel
          * @return: com.etc.model.ShopEntity
          * @author: hejw
-         * @time: 2019/11/17 18:29
+         * @time: 2019/11/23 10:55
          */
         ShopEntity shop = null;
         Session session = null;
@@ -80,9 +78,12 @@ public class ShopDAO {
             if (query.list().size() != 0) {
                 throw new BaseException("该手机号已注册");
             } else {
+                if (shopPwd2.equals(shopPwd1) == false) {
+                    throw new BaseException("密码错误");
+                }
                 shop = new ShopEntity();
                 shop.setShopTel(shopTel);
-                shop.setShopPwd(shopPwd);
+                shop.setShopPwd(shopPwd1);
                 session.save(shop);
             }
             tx.commit();
@@ -219,7 +220,5 @@ public class ShopDAO {
         return tmpShop;
     }
 
-    public static void main(String[] args) throws BaseException {
-        new ShopDAO().reg("1", "1");
-    }
+
 }

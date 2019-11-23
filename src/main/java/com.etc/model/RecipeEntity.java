@@ -1,6 +1,7 @@
 package com.etc.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "recipe", schema = "blm", catalog = "")
@@ -13,8 +14,17 @@ public class RecipeEntity {
     private String recipeImage;
     private Integer recipeRemain;
     private Double recipeDiscount;
+    private String recipeStatus;
     private ShopEntity shop;
+    private Set<OrderInfEntity> orderInfs;
 
+    public Set<OrderInfEntity> getOrderInfs() {
+        return orderInfs;
+    }
+
+    public void setOrderInfs(Set<OrderInfEntity> orderInfs) {
+        this.orderInfs = orderInfs;
+    }
     public ShopEntity getShop() {
         return shop;
     }
@@ -103,6 +113,16 @@ public class RecipeEntity {
         this.recipeDiscount = recipeDiscount;
     }
 
+    @Basic
+    @Column(name = "recipe_status", nullable = true, length = 20)
+    public String getRecipeStatus() {
+        return recipeStatus;
+    }
+
+    public void setRecipeStatus(String recipeStatus) {
+        this.recipeStatus = recipeStatus;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -119,6 +139,7 @@ public class RecipeEntity {
         if (recipeRemain != null ? !recipeRemain.equals(that.recipeRemain) : that.recipeRemain != null) return false;
         if (recipeDiscount != null ? !recipeDiscount.equals(that.recipeDiscount) : that.recipeDiscount != null)
             return false;
+        if (recipeStatus != null ? !recipeStatus.equals(that.recipeStatus) : that.recipeStatus != null) return false;
 
         return true;
     }
@@ -133,6 +154,7 @@ public class RecipeEntity {
         result = 31 * result + (recipeImage != null ? recipeImage.hashCode() : 0);
         result = 31 * result + (recipeRemain != null ? recipeRemain.hashCode() : 0);
         result = 31 * result + (recipeDiscount != null ? recipeDiscount.hashCode() : 0);
+        result = 31 * result + (recipeStatus != null ? recipeStatus.hashCode() : 0);
         return result;
     }
 }

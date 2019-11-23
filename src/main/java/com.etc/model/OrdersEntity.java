@@ -2,6 +2,7 @@ package com.etc.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders", schema = "blm", catalog = "")
@@ -11,6 +12,34 @@ public class OrdersEntity {
     private Timestamp orderStartTime;
     private Timestamp orderFinishTime;
     private String orderStatus;
+    private String orderRemark;
+    private ShopEntity shop;
+    private UserEntity user;
+    private Set<RecipeEntity> orderInfs;
+
+    public Set<RecipeEntity> getOrderInfs() {
+        return orderInfs;
+    }
+
+    public void setOrderInfs(Set<RecipeEntity> orderInfs) {
+        this.orderInfs = orderInfs;
+    }
+
+    public ShopEntity getShop() {
+        return shop;
+    }
+
+    public void setShop(ShopEntity shop) {
+        this.shop = shop;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
 
     @Id
     @Column(name = "order_id", nullable = false)
@@ -62,12 +91,22 @@ public class OrdersEntity {
         this.orderStatus = orderStatus;
     }
 
+    @Basic
+    @Column(name = "order_remark", nullable = true, length = 200)
+    public String getOrderRemark() {
+        return orderRemark;
+    }
+
+    public void setOrderRemark(String orderRemark) {
+        this.orderRemark = orderRemark;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        OrdersEntity that = (OrdersEntity) o;
+        com.etc.model.OrdersEntity that = (com.etc.model.OrdersEntity) o;
 
         if (orderId != that.orderId) return false;
         if (temporaryId != null ? !temporaryId.equals(that.temporaryId) : that.temporaryId != null) return false;
@@ -76,6 +115,7 @@ public class OrdersEntity {
         if (orderFinishTime != null ? !orderFinishTime.equals(that.orderFinishTime) : that.orderFinishTime != null)
             return false;
         if (orderStatus != null ? !orderStatus.equals(that.orderStatus) : that.orderStatus != null) return false;
+        if (orderRemark != null ? !orderRemark.equals(that.orderRemark) : that.orderRemark != null) return false;
 
         return true;
     }
@@ -87,6 +127,7 @@ public class OrdersEntity {
         result = 31 * result + (orderStartTime != null ? orderStartTime.hashCode() : 0);
         result = 31 * result + (orderFinishTime != null ? orderFinishTime.hashCode() : 0);
         result = 31 * result + (orderStatus != null ? orderStatus.hashCode() : 0);
+        result = 31 * result + (orderRemark != null ? orderRemark.hashCode() : 0);
         return result;
     }
 }

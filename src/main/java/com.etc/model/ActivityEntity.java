@@ -8,6 +8,16 @@ public class ActivityEntity {
     private int activityId;
     private Double fullMoney;
     private Double reduceMoney;
+    private ShopEntity shop;
+
+    public ShopEntity getShop() {
+        return shop;
+    }
+
+    public void setShop(ShopEntity shop) {
+        this.shop = shop;
+    }
+
 
     @Id
     @Column(name = "activity_id", nullable = false)

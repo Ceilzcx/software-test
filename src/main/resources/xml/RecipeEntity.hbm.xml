@@ -29,6 +29,13 @@
         <property name="recipeDiscount">
             <column name="recipe_discount" sql-type="float" precision="-1" not-null="false"/>
         </property>
-        <many-to-one name="shop" column="shop_id" lazy="false" />
+        <property name="recipeStatus">
+            <column name="recipe_status" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <many-to-one name="shop" class="com.etc.model.ShopEntity" column="shop_id" lazy="false" />
+        <set name="orderInfs" lazy="false">
+            <key column="recipe_id" />
+            <one-to-many class="com.etc.model.OrderInfEntity" />
+        </set>
     </class>
 </hibernate-mapping>

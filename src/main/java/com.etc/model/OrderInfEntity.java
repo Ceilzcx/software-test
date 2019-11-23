@@ -8,6 +8,16 @@ public class OrderInfEntity {
     private int orderInfId;
     private Integer listId;
     private Integer orderRecipeNumber;
+    private OrdersEntity order;
+
+    public OrdersEntity getOrder() {
+        return order;
+    }
+
+    public void setOrder(OrdersEntity order) {
+        this.order = order;
+    }
+
 
     @Id
     @Column(name = "order_inf_id", nullable = false)
