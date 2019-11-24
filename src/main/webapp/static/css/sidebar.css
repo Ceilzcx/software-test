@@ -10,48 +10,54 @@
 
 #sidebar{
 	width: 200px;
-	height: 800px;
+	height: 520px;
 	background-color: #eeeeee;
 }
 
 #sidebar ul{
 	font-size: 15px;
-	padding: 10px 40px;
+	margin: 10px auto;
+}
+
+.border_line{
 	border-bottom: 1px solid #999999;
 }
 
-#sidebar ul>img{
-	margin-left: -20px;
-	margin-right: 20px;
+.sidebar_title1{
+	display: inline-block;
+	width: 100%;
+	margin-left: 10px;
+}
+
+.sidebar_title1>img{
+	float: left;
 	width: 20px;
 	height: 20px;
 }
 
-.sidebar_title{
-	display: inline-block;
-	margin-bottom: 5px;
+.sidebar_title2{
+	float: left;
+	margin-left: 20px;
 }
 
-#sidebar li{
+.li_click li{
 	font-size: 15px;
 	font-weight: bold;
 	font-family: "微软雅黑", serif;
-	padding: 10px 0 8px 20px;
-}
-
-#sidebar li>a{
+	align-content: center;
+	padding: 10px 50px;
 	color: black;
 }
 
-#sidebar>h3{
-	font-weight: bold;
-	font-family: "微软雅黑", serif;
-	padding: 20px;
+.li_click li a{
+	color: black;
 }
 
-#sidebar>h4{
-	font-weight: bold;
-	font-family: "微软雅黑", serif;
-	padding-bottom: 20px;
-	border-bottom: #999999 1px solid;
+.li_click li:hover{
+	cursor: pointer;
+}
+
+.click{
+	background-color: #cc4135;
+	color: white;
 }

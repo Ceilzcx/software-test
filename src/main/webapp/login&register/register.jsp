@@ -17,7 +17,7 @@
 
     <div class="register">
         <div class="register_header">
-            <img src="//shadow.elemecdn.com/faas/h5/static/logo.ba876fd.png" class="register_icon"></div>
+            <img src="../static/image/icon.jpg" class="register_icon"></div>
         <div>
             <form class="register_form">
                 <section class="register_text"><input type="tel" maxlength="11" name="telephone" placeholder="手机号"></section>
