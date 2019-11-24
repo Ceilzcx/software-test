@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="sofiwareWork" />
+        <module name="software-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="sofiwareWork" target="1.7" />
+      <module name="software-test" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
