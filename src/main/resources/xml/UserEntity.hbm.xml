@@ -23,5 +23,13 @@
         <property name="userImage">
             <column name="user_image" sql-type="varchar(1024)" length="1024" not-null="false"/>
         </property>
+        <set name="orders" lazy="false">
+            <key column="shop_id" />
+            <one-to-many class="com.etc.model.OrdersEntity" />
+        </set>
+        <set name="shopEvaluations" lazy="false">
+            <key column="shop_id" />
+            <one-to-many class="com.etc.model.ShopEvaluateEntity" />
+        </set>
     </class>
 </hibernate-mapping>

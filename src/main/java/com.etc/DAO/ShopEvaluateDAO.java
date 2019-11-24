@@ -2,7 +2,6 @@ package com.etc.DAO;
 
 import com.etc.model.ShopEntity;
 import com.etc.model.ShopEvaluateEntity;
-import com.etc.util.BaseException;
 import com.etc.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

@@ -1,6 +1,7 @@
 package com.etc.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "user", schema = "blm", catalog = "")
@@ -11,6 +12,24 @@ public class UserEntity {
     private String userTel;
     private String userAddress;
     private String userImage;
+    private Set<OrdersEntity> orders;
+    private Set<ShopEvaluateEntity> shopEvaluations;
+
+    public Set<ShopEvaluateEntity> getShopEvaluations() {
+        return shopEvaluations;
+    }
+
+    public void setShopEvaluations(Set<ShopEvaluateEntity> shopEvaluations) {
+        this.shopEvaluations = shopEvaluations;
+    }
+
+    public Set<OrdersEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<OrdersEntity> orders) {
+        this.orders = orders;
+    }
 
     @Id
     @Column(name = "user_id", nullable = false)
