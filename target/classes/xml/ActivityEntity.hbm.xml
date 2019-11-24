@@ -14,5 +14,6 @@
         <property name="reduceMoney">
             <column name="reduce_money" sql-type="float" precision="-1" not-null="true"/>
         </property>
+        <many-to-one name="shop" class="com.etc.model.ShopEntity" column="shop_id" lazy="false" />
     </class>
 </hibernate-mapping>

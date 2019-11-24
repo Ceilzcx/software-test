@@ -14,5 +14,7 @@
         <property name="orderRecipeNumber">
             <column name="order_recipe_number" sql-type="int(11)" not-null="true"/>
         </property>
+        <many-to-one name="order" class="com.etc.model.OrdersEntity" column="order_id" lazy="false" />
+        <many-to-one name="recipe" class="com.etc.model.RecipeEntity" column="order_id" lazy="false" />
     </class>
 </hibernate-mapping>
