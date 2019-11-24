@@ -13,13 +13,13 @@ public class UserEntity {
     private String userAddress;
     private String userImage;
     private Set<OrdersEntity> orders;
-    private Set<OrdersEntity> shopEvaluations;
+    private Set<ShopEvaluateEntity> shopEvaluations;
 
-    public Set<OrdersEntity> getShopEvaluations() {
+    public Set<ShopEvaluateEntity> getShopEvaluations() {
         return shopEvaluations;
     }
 
-    public void setShopEvaluations(Set<OrdersEntity> shopEvaluations) {
+    public void setShopEvaluations(Set<ShopEvaluateEntity> shopEvaluations) {
         this.shopEvaluations = shopEvaluations;
     }
 
