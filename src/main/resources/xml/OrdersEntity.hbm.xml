@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.etc.model.OrdersEntity" table="orders" schema="blm">
+        <id name="orderId">
+            <column name="order_id" sql-type="int(11)"/>
+        </id>
+        <property name="temporaryId">
+            <column name="temporary_id" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="orderStartTime">
+            <column name="order_start_time" sql-type="datetime" not-null="false"/>
+        </property>
+        <property name="orderFinishTime">
+            <column name="order_finish_time" sql-type="datetime" not-null="false"/>
+        </property>
+        <property name="orderStatus">
+            <column name="order_status" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <property name="orderRemark">
+            <column name="order_remark" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <many-to-one name="shop" class="com.etc.model.ShopEntity" column="shop_id" lazy="false" />
+        <many-to-one name="user" class="com.etc.model.UserEntity" column="user_id" lazy="false" />
+        <set name="orderInfs" lazy="false">
+            <key column="order_id" />
+            <one-to-many class="com.etc.model.OrderInfEntity" />
+        </set>
+    </class>
+</hibernate-mapping>
