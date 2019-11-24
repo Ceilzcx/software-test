@@ -9,6 +9,15 @@ public class OrderInfEntity {
     private Integer listId;
     private Integer orderRecipeNumber;
     private OrdersEntity order;
+    private RecipeEntity recipe;
+
+    public RecipeEntity getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(RecipeEntity recipe) {
+        this.recipe = recipe;
+    }
 
     public OrdersEntity getOrder() {
         return order;

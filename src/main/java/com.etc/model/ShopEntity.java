@@ -17,6 +17,33 @@ public class ShopEntity {
     private String shopTrademark;
     private String shopStatus;
     private Set<RecipeEntity> recipes;
+    private Set<ActivityEntity> activities;
+    private Set<OrdersEntity> orders;
+    private Set<ShopEvaluateEntity> shopEvaluations;
+
+    public Set<ShopEvaluateEntity> getShopEvaluations() {
+        return shopEvaluations;
+    }
+
+    public void setShopEvaluations(Set<ShopEvaluateEntity> shopEvaluations) {
+        this.shopEvaluations = shopEvaluations;
+    }
+
+    public Set<OrdersEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<OrdersEntity> orders) {
+        this.orders = orders;
+    }
+
+    public Set<ActivityEntity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(Set<ActivityEntity> activities) {
+        this.activities = activities;
+    }
 
     public Set<RecipeEntity> getRecipes() {
         return recipes;

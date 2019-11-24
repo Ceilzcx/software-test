@@ -36,5 +36,17 @@
             <key column="shop_id" />
             <one-to-many class="com.etc.model.RecipeEntity" />
         </set>
+        <set name="activities" lazy="false">
+            <key column="shop_id" />
+            <one-to-many class="com.etc.model.ActivityEntity" />
+        </set>
+        <set name="orders" lazy="false">
+            <key column="shop_id" />
+            <one-to-many class="com.etc.model.OrdersEntity" />
+        </set>
+        <set name="shopEvaluations" lazy="false">
+            <key column="shop_id" />
+            <one-to-many class="com.etc.model.ShopEvaluateEntity" />
+        </set>
     </class>
 </hibernate-mapping>
