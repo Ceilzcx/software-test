@@ -17,7 +17,7 @@
 
     <div class="login">
         <div class="login_header">
-            <img src="//shadow.elemecdn.com/faas/h5/static/logo.ba876fd.png" class="login_icon"></div>
+            <img src="../static/image/icon.jpg" class="login_icon"></div>
         <div>
             <form class="login_form">
                 <section class="login_text"><input type="tel" maxlength="11" name="telephone" placeholder="手机号">
@@ -27,7 +27,7 @@
                     登录
                 </button>
                 <section class="login_register">
-                    还没有登录?点击<a href="">注册</a>
+                    还没有登录?点击<a href="register.jsp">注册</a>
                 </section>
             </form>
         </div>

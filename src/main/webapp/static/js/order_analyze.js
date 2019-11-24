@@ -1,23 +1,3 @@
-/*$("#order_before>img").click(function () {
-    $("#order_before").show();
-    $("#order_week_ago").hidden = true;
-    $("#order_twoWeek_ago").hidden = true;
-});*/
-
-/*$(".order_analyze_title>img").click(function () {
-    alert("ok");
-    $("#test1").className = "order_indicator_hidden";
-    $("#test2").className = "order_indicator_show";
-    $("#test3").className = "order_indicator_hidden";
-
-    $("#order_before").show();
-    $("#order_week_ago").hidden = true;
-    $("#order_twoWeek_ago").hidden = true;
-});
-
-$("#order_twoWeek_ago>img").click(function () {
-
-});*/
 "use strict";   //声明严格模式
 
 window.onload = function () {
@@ -28,40 +8,42 @@ window.onload = function () {
 
 function onclick_before() {
     var before = document.getElementById("order_indicator_before");
-    before.className = "order_indicator_show";
-    $("#order_before").show();
 
-    var week = document.getElementById("order_indicator_week");
-    week.className = "order_indicator_hidden";
-    $("#order_week_ago").hide();
-
-    var twoBefore = document.getElementById("order_indicator_twoWeek");
-    twoBefore.className = "order_indicator_hidden";
-    $("#order_twoWeek_ago").hide();
+    if ($("#order_before").is(":hidden")) {
+        $("#order_before").show();
+        before.className = "order_indicator_show";
+        $("#image_before").attr("src", "../static/image/show_less.png");
+    }else {
+        $("#order_before").show();
+        before.className = "order_indicator_hidden";
+        $("#image_before").attr("src", "../static/image/show_more.png");
+    }
 }
 
 function onclick_week() {
-    var week = document.getElementById("order_indicator_week");
-    week.className = "order_indicator_show";
-    $("#order_week_ago").show();
+    var before = document.getElementById("order_indicator_week");
 
-    var before = document.getElementById("order_indicator_before");
-    before.className = "order_indicator_hidden";
-    $("#order_before").hide();
-
-    var twoBefore = document.getElementById("order_indicator_twoWeek");
-    twoBefore.className = "order_indicator_hidden";
-    $("#order_twoWeek_ago").hide();
+    if ($("#order_week_ago").is(":hidden")) {
+        $("#order_week_ago").show();
+        before.className = "order_indicator_show";
+        $("#image_week").attr("src", "../static/image/show_less.png");
+    }else {
+        $("#order_week_ago").hide();
+        before.className = "order_indicator_hidden";
+        $("#image_week").attr("src", "../static/image/show_more.png");
+    }
 }
 
 function onclick_twoWeek() {
-    var twoWeek = document.getElementById("order_indicator_twoWeek");
-    twoWeek.className = "order_indicator_show";
-    if ($("#order_twoWeek_ago").css(display) == "none"){
-        $("#order_twoWeek_ago").css(display, "block");
-        $("#img_twoWeek").src = "../static/image/show_more.png";
+    var before = document.getElementById("order_indicator_twoWeek");
+
+    if ($("#order_twoWeek_ago").is(":hidden")) {
+        $("#order_twoWeek_ago").show();
+        before.className = "order_indicator_show";
+        $("#image_twoWeek").attr("src", "../static/image/show_less.png");
     }else {
-        $("#order_twoWeek_ago").css(display, "none");
-        $("#img_twoWeek").src = "../static/image/show_less.png";
+        $("#order_twoWeek_ago").hide();
+        before.className = "order_indicator_hidden";
+        $("#image_twoWeek").attr("src", "../static/image/show_more.png");
     }
 }

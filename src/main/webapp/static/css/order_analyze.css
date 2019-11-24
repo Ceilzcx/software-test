@@ -2,8 +2,9 @@
 
 #content{
     width: 830px;
+    height: 500px;
     margin: 0 25px;
-    padding: 10px;
+    padding: 30px;
 }
 
 #content>h3{
