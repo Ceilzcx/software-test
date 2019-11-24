@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.etc.model.ActivityEntity" table="activity" schema="blm">
+        <id name="activityId">
+            <column name="activity_id" sql-type="int(11)"/>
+        </id>
+        <property name="fullMoney">
+            <column name="full_money" sql-type="float" precision="-1" not-null="true"/>
+        </property>
+        <property name="reduceMoney">
+            <column name="reduce_money" sql-type="float" precision="-1" not-null="true"/>
+        </property>
+        <many-to-one name="shop" class="com.etc.model.ShopEntity" column="shop_id" lazy="false" />
+    </class>
+</hibernate-mapping>

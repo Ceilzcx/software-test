@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.etc.model.RecipeEntity" table="recipe" schema="blm">
+        <id name="recipeId">
+            <column name="recipe_id" sql-type="int(11)"/>
+        </id>
+        <property name="recipeName">
+            <column name="recipe_name" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="recipePrice">
+            <column name="recipe_price" sql-type="float" precision="-1" not-null="false"/>
+        </property>
+        <property name="monthlySale">
+            <column name="monthly_sale" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="recipeNotice">
+            <column name="recipe_notice" sql-type="varchar(200)" length="200" not-null="false"/>
+        </property>
+        <property name="recipeImage">
+            <column name="recipe_image" sql-type="varchar(1024)" length="1024" not-null="false"/>
+        </property>
+        <property name="recipeRemain">
+            <column name="recipe_remain" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="recipeDiscount">
+            <column name="recipe_discount" sql-type="float" precision="-1" not-null="false"/>
+        </property>
+        <property name="recipeStatus">
+            <column name="recipe_status" sql-type="varchar(20)" length="20" not-null="false"/>
+        </property>
+        <many-to-one name="shop" class="com.etc.model.ShopEntity" column="shop_id" lazy="false" />
+        <set name="orderInfs" lazy="false">
+            <key column="recipe_id" />
+            <one-to-many class="com.etc.model.OrderInfEntity" />
+        </set>
+    </class>
+</hibernate-mapping>
