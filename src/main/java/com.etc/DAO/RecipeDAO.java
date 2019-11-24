@@ -32,7 +32,7 @@ public class RecipeDAO {
         try {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
-            String hql = "from RecipeEntity where shop.shopId=" + shop.getShopId();
+            String hql = "from RecipeEntity where shop.shopId=" + shop.getShopId() + " and recipeStatus not like '" + "已删除" + "'";
             recipeList = (List<RecipeEntity>) session.createQuery(hql).list();
             tx.commit();
         } finally {
@@ -65,23 +65,42 @@ public class RecipeDAO {
          */
         Session session = null;
         Transaction tx = null;
+        RecipeEntity recipe = null;
         try {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
-            String hql = "from RecipeEntity where recipeName='" + recipeName + "'";
+            String hql = "from RecipeEntity where recipeName='" + recipeName + "' and recipeStatus not like '" + "已删除" + "'";
             Query query = session.createQuery(hql);
             if (query.list().size() != 0) {
                 throw new BaseException("菜品已存在");
             }
-            RecipeEntity recipe = new RecipeEntity();
-            recipe.setMonthlySale(0);
-            recipe.setRecipeDiscount(recipeDiscount);
-            recipe.setRecipeImage(recipeImage);
-            recipe.setRecipeName(recipeName);
-            recipe.setRecipeNotice(recipeNotice);
-            recipe.setShop(shop);
-            recipe.setRecipeRemain(recipeRemain);
-            session.save(recipe);
+            hql = "from RecipeEntity where recipeName='" + recipeName + "' and recipeStatus like '" + "已删除" + "'";
+            query = session.createQuery(hql);
+            if (query.list().size() != 0) {
+                recipe = (RecipeEntity) query.list().get(0);
+                recipe = session.get(RecipeEntity.class, recipe.getRecipeId());
+                recipe.setMonthlySale(0);
+                recipe.setRecipePrice(recipePrice);
+                recipe.setRecipeDiscount(recipeDiscount);
+                recipe.setRecipeImage(recipeImage);
+                recipe.setRecipeName(recipeName);
+                recipe.setRecipeNotice(recipeNotice);
+                recipe.setShop(shop);
+                recipe.setRecipeRemain(recipeRemain);
+                recipe.setRecipeStatus(null);
+            } else {
+                recipe = new RecipeEntity();
+                recipe.setMonthlySale(0);
+                recipe.setRecipePrice(recipePrice);
+                recipe.setRecipeDiscount(recipeDiscount);
+                recipe.setRecipeImage(recipeImage);
+                recipe.setRecipeName(recipeName);
+                recipe.setRecipeNotice(recipeNotice);
+                recipe.setShop(shop);
+                recipe.setRecipeRemain(recipeRemain);
+                session.save(recipe);
+            }
+
             tx.commit();
         } catch (BaseException e) {
             e.printStackTrace();
@@ -96,7 +115,7 @@ public class RecipeDAO {
         }
     }
 
-    public void deleteRecipe(RecipeEntity recipe) throws BaseException {
+    public void deleteRecipe(RecipeEntity recipe) {
         /**
          *
          *
@@ -125,7 +144,7 @@ public class RecipeDAO {
         }
     }
 
-    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, Integer monthlySale, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount, String recipeStatus) throws BaseException {
+    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, Integer monthlySale, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) {
         /**
          *
          *
@@ -156,7 +175,6 @@ public class RecipeDAO {
             r.setRecipeImage(recipeImage);
             r.setRecipeRemain(recipeRemain);
             r.setRecipeDiscount(recipeDiscount);
-            r.setRecipeStatus(recipeStatus);
             tx.commit();
         } finally {
             try {

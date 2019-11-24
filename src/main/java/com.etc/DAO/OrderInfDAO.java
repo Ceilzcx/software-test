@@ -14,7 +14,7 @@ import java.util.List;
  * @time: 2019/11/23 21:46
  */
 public class OrderInfDAO {
-    public List<OrderInfEntity> loadOrderInf(OrdersEntity order){
+    public List<OrderInfEntity> findOrderInformations(OrdersEntity order){
         /**
          *
          *

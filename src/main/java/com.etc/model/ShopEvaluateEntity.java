@@ -10,6 +10,24 @@ public class ShopEvaluateEntity {
     private Double shopGrade;
     private String shopEvaluateContent;
     private String shopEvaluateImage;
+    private ShopEntity shop;
+    private UserEntity user;
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public ShopEntity getShop() {
+        return shop;
+    }
+
+    public void setShop(ShopEntity shop) {
+        this.shop = shop;
+    }
 
     @Id
     @Column(name = "shop_evaluate_id", nullable = false)

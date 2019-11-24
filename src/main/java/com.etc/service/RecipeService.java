@@ -1,7 +1,9 @@
 package com.etc.service;
 
+import com.etc.DAO.RecipeDAO;
 import com.etc.model.RecipeEntity;
 import com.etc.model.ShopEntity;
+import com.etc.util.BaseException;
 import com.etc.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -14,26 +16,27 @@ import java.util.List;
  * @time: 2019/11/17 16:53
  */
 public class RecipeService {
-    public List<RecipeEntity> loadAllRecipes(ShopEntity shop){
-        /**
-         *
-         *
-         * @description: 加载所有菜品
-         * @param shop
-         * @return: java.util.List<com.etc.model.RecipeEntity>
-         * @author: hejw
-         * @time: 2019/11/17 21:16
-         */
-        Session session=null;
-        List<RecipeEntity> recipeList=null;
-        Transaction tx=null;
-        try {
-            session= HibernateUtil.getSession();
-            tx=session.beginTransaction();
-            String hql="from RecipeEntity ";
-        }catch (Exception e){
+    private RecipeDAO recipeDAO = new RecipeDAO();
 
+    public List<RecipeEntity> viewRecipes(ShopEntity shop) {
+        return recipeDAO.loadAllRecipes(shop);
+    }
+
+    public List<RecipeEntity> createRecipe(ShopEntity shop, String recipeName, double recipePrice, String recipeNotice, String recipeImage, int recipeRemain, double recipeDiscount) throws BaseException {
+        try {
+            recipeDAO.addRecipe(shop, recipeName, recipePrice, recipeNotice, recipeImage, recipeRemain, recipeDiscount);
+        } catch (BaseException e) {
+            throw new BaseException(e.getMessage());
         }
-        return null;
+        return recipeDAO.loadAllRecipes(shop);
+    }
+
+    public List<RecipeEntity> deleteRecipe(RecipeEntity recipe) {
+        recipeDAO.deleteRecipe(recipe);
+        return recipeDAO.loadAllRecipes(recipe.getShop());
+    }
+
+    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, Integer monthlySale, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) {
+        recipeDAO.modifyRecipe(recipe, recipeName, recipePrice, monthlySale, recipeNotice, recipeImage, recipeRemain, recipeDiscount);
     }
 }
