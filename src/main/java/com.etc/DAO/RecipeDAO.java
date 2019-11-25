@@ -2,6 +2,7 @@ package com.etc.DAO;
 
 import com.etc.model.RecipeEntity;
 import com.etc.model.ShopEntity;
+import com.etc.service.RecipeService;
 import com.etc.util.BaseException;
 import com.etc.util.HibernateUtil;
 import org.hibernate.Session;
@@ -32,7 +33,7 @@ public class RecipeDAO {
         try {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
-            String hql = "from RecipeEntity where shop.shopId=" + shop.getShopId() + " and recipeStatus not like '" + "已删除" + "'";
+            String hql = "from RecipeEntity where shop.shopId=" + shop.getShopId() /*+ " and recipeStatus not like '" + "已删除" + "'"*/;
             recipeList = (List<RecipeEntity>) session.createQuery(hql).list();
             tx.commit();
         } finally {
@@ -184,6 +185,16 @@ public class RecipeDAO {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        ShopEntity entity = new ShopEntity();
+        entity.setShopId(1);
+        RecipeDAO dao = new RecipeDAO();
+        List<RecipeEntity> entities = dao.loadAllRecipes(entity);
+        for (int i = 0; i < entities.size(); i++) {
+            System.out.println(entities.get(i).getRecipeName());
         }
     }
 }

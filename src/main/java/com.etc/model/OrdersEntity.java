@@ -15,13 +15,13 @@ public class OrdersEntity {
     private String orderRemark;
     private ShopEntity shop;
     private UserEntity user;
-    private Set<RecipeEntity> orderInfs;
+    private Set<OrderInfEntity> orderInfs;
 
-    public Set<RecipeEntity> getOrderInfs() {
+    public Set<OrderInfEntity> getOrderInfs() {
         return orderInfs;
     }
 
-    public void setOrderInfs(Set<RecipeEntity> orderInfs) {
+    public void setOrderInfs(Set<OrderInfEntity> orderInfs) {
         this.orderInfs = orderInfs;
     }
 
@@ -130,4 +130,5 @@ public class OrdersEntity {
         result = 31 * result + (orderRemark != null ? orderRemark.hashCode() : 0);
         return result;
     }
+
 }

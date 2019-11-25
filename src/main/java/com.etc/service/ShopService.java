@@ -20,6 +20,7 @@ public class ShopService {
         try {
             ShopEntity.currentLoginShop = shopDAO.login(shopTel, shopPwd);
         } catch (BaseException e) {
+            System.out.println(false);
             throw new BaseException(e.getMessage());
         }
         return true;
@@ -58,4 +59,8 @@ public class ShopService {
         ShopEntity.currentLoginShop = shopDAO.announce(shop, notice);
     }
 
+    public static void main(String[] args) throws BaseException {
+        ShopService shopService=new ShopService();
+        System.out.println(shopService.login("17342019006","123456"));
+    }
 }

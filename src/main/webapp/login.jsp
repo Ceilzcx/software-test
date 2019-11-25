@@ -5,24 +5,25 @@
   Time: 14:22
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" isErrorPage="true" %>
 <html>
 <head>
     <title>Title</title>
 
-    <link rel="stylesheet" href="../static/css/login.css"/>
+    <link rel="stylesheet" href="static/css/login.css"/>
 
 </head>
 <body>
 
     <div class="login">
         <div class="login_header">
-            <img src="../static/image/icon.jpg" class="login_icon"></div>
+            <img src="static/image/icon.jpg" class="login_icon"></div>
         <div>
-            <form class="login_form">
+            <form class="login_form" action="login" method="post">
                 <section class="login_text"><input type="tel" maxlength="11" name="telephone" placeholder="手机号">
                 </section>
                 <section class="login_text"><input type="tel" maxlength="20" name="password" placeholder="密码"></section>
+                <div class="login_exception"><p>异常处理<%=exception != null ? exception.getMessage() : ""%></p></div>
                 <button class="login_button">
                     登录
                 </button>

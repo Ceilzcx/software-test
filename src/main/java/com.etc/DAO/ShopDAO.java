@@ -33,6 +33,7 @@ public class ShopDAO {
             String hql = "from ShopEntity where shopTel='" + shopTel + "' and shopPwd='" + shopPwd + "'";
             Query query = session.createQuery(hql);
             if (query.list().size() != 0) {
+                System.out.println(true);
                 ShopEntity s = (ShopEntity) query.list().get(0);
                 ShopEntity tmpShop = session.get(ShopEntity.class, s.getShopId());
                 tmpShop.setShopStatus("在线");
@@ -42,7 +43,7 @@ public class ShopDAO {
                 throw new BaseException("手机号或密码错误");
             }
         } catch (BaseException e) {
-            e.printStackTrace();
+            throw new BaseException(e.getMessage());
         } finally {
             try {
                 if (session != null) {
