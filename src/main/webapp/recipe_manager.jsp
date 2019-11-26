@@ -14,10 +14,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="../static/css/recipe_manager.css"/>
+    <link rel="stylesheet" href="static/css/recipe_manager.css"/>
 
-    <script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../static/js/recipe_manager.js"></script>
+    <script type="text/javascript" src="static/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="static/js/recipe_manager.js"></script>
 </head>
 <body>
 
@@ -55,9 +55,9 @@
         <td><%=entities.get(i).getRecipeRemain()%></td>
         <td><%=entities.get(i).getRecipeDiscount()%></td>
         <td>
-            <a href="#"><img src="../static/image/read.png" alt="查看" title="查看"/></a>
-            <a href="#"><img src="../static/image/modify.png" alt="修改" title="修改"/></a>
-            <a href="#" class="removeProvider"><img src="../static/image/delete.png" alt="删除" title="删除"/></a>
+            <a href="#"><img src="static/image/read.png" alt="查看" title="查看"/></a>
+            <a href="#"><img src="static/image/modify.png" alt="修改" title="修改"/></a>
+            <a href="#" class="removeProvider"><img src="static/image/delete.png" alt="删除" title="删除"/></a>
         </td>
     </tr>
     <%}%>

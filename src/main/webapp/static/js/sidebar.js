@@ -24,11 +24,17 @@ $(function() {
             case "#user_analyze":
                 path = "user_analyze.jsp";
                 break;
-            case "#order_analyze":
+            case "#evaluate_analyze":
                 path = "order_analyze.jsp";
                 break;
             case "#information":
-                path = "information.jsp";
+                path = "shop_information.jsp";
+                break;
+            case "#modify_pwd":
+                path = "shop_modify_pwd.jsp";
+                break;
+            case "":
+                path = "setting";
                 break;
             default:
                 path = "shop_notice.jsp";

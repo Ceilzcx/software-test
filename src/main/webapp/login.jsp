@@ -20,10 +20,10 @@
             <img src="static/image/icon.jpg" class="login_icon"></div>
         <div>
             <form class="login_form" action="login" method="post">
-                <section class="login_text"><input type="tel" maxlength="11" name="telephone" placeholder="手机号">
+                <section class="login_text"><input type="tel" maxlength="11" name="telephone" placeholder="手机号" value="17342019006">
                 </section>
-                <section class="login_text"><input type="tel" maxlength="20" name="password" placeholder="密码"></section>
-                <div class="login_exception"><p>异常处理<%=exception != null ? exception.getMessage() : ""%></p></div>
+                <section class="login_text"><input type="password" maxlength="20" name="password" placeholder="密码" value="123456"></section>
+                <div class="login_exception"><p><%=exception != null ? exception.getMessage() : ""%></p></div>
                 <button class="login_button">
                     登录
                 </button>

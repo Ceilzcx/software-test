@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
         ShopService shopService=new ShopService();
         try {
             if (shopService.reg(telephone, pwd1, pwd2)){
-                request.getRequestDispatcher("html_main/real_order.jsp").forward(request, response);
+                request.getRequestDispatcher("real_order.jsp").forward(request, response);
             }
         } catch (BaseException e) {
             throw new IOException(e.getMessage());

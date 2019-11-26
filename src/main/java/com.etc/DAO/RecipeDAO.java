@@ -188,6 +188,28 @@ public class RecipeDAO {
         }
     }
 
+    public List<RecipeEntity> search(ShopEntity shop, String recipeName) {
+        Session session = null;
+        Transaction tx = null;
+        List<RecipeEntity> recipeEntities = null;
+        try {
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+            String hql = "from RecipeEntity where recipeName like '%" + recipeName + "%'";
+            recipeEntities = (List<RecipeEntity>) session.createQuery(hql).list();
+            tx.commit();
+        } finally {
+            try {
+                if (session != null) {
+                    session.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return recipeEntities;
+    }
+
     public static void main(String[] args) {
         ShopEntity entity = new ShopEntity();
         entity.setShopId(1);

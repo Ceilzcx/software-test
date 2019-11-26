@@ -14,10 +14,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="../static/css/order_analyze.css"/>
+    <link rel="stylesheet" href="static/css/order_analyze.css"/>
 
-    <script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../static/js/order_analyze.js"></script>
+    <script type="text/javascript" src="static/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="static/js/order_analyze.js"></script>
 </head>
 <body>
 
@@ -28,7 +28,7 @@
     <div class="order_indicator_show" id="order_indicator_before">
         <div class="order_analyze_title">
             <h4>昨日订单指标</h4>
-            <img id="image_before" src="../static/image/show_more.png" onclick="onclick_before()">
+            <img id="image_before" src="static/image/show_more.png" onclick="onclick_before()">
         </div>
 
         <div id="order_before">
@@ -53,7 +53,7 @@
     <div class="order_indicator_hidden" id="order_indicator_week">
         <div class="order_analyze_title">
             <h4>7日订单指标</h4>
-            <img id="image_week" src="../static/image/show_more.png" onclick="onclick_week()">
+            <img id="image_week" src="static/image/show_more.png" onclick="onclick_week()">
         </div>
 
         <div id="order_week_ago">
@@ -78,7 +78,7 @@
     <div class="order_indicator_hidden" id="order_indicator_twoWeek">
         <div class="order_analyze_title">
             <h4>15日订单指标</h4>
-            <img id="image_twoWeek" src="../static/image/show_more.png" onclick="onclick_twoWeek()">
+            <img id="image_twoWeek" src="static/image/show_more.png" onclick="onclick_twoWeek()">
         </div>
 
         <div id="order_twoWeek_ago">

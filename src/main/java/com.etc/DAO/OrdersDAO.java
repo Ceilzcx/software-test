@@ -73,4 +73,6 @@ public class OrdersDAO {
         }
         return ordersEntityList;
     }
+
+//    public List<OrdersEntity> search(ShopEntity shop,)
 }

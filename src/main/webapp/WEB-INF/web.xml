@@ -53,6 +53,15 @@
         <servlet-name>ViewOrderServlet</servlet-name>
         <url-pattern>/order</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NoticeServlet</servlet-name>
+        <servlet-class>com.etc.servlet.NoticeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NoticeServlet</servlet-name>
+        <url-pattern>/notice</url-pattern>
+    </servlet-mapping>
     <!-- <listener>
          <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
      </listener>

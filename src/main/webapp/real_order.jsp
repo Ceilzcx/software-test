@@ -10,16 +10,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="../static/css/real_order.css"/>
+    <link rel="stylesheet" href="static/css/real_order.css"/>
 
-    <script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="static/js/jquery-3.4.1.js"></script>
 
 </head>
 <body>
 
+<div id="bg">
+
     <div id="main">
 
-        <h2>实时订单</h2>
+        <div class="title">
+            <h2>处理订单</h2>
+
+            <span><a href="sidebar.html">返回</a></span>
+            <select id="status">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+            </select>
+            <span>状态</span>
+
+        </div>
 
         <div id="content">
 
@@ -51,7 +64,7 @@
                 <tr class="order">
                     <td class="order_detail" valign="middle">
                         <div class="order_item">
-                            <img src="../static/image/icon.jpg">
+                            <img src="static/image/icon.jpg">
                         </div>
                         <div class="order_recipe">
                             <span>红烧肉</span>
@@ -82,6 +95,8 @@
         </div>
 
     </div>
+
+</div>
 
 </body>
 </html>

@@ -18,9 +18,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="../static/css/recipe_manager.css"/>
+    <link rel="stylesheet" href="static/css/recipe_manager.css"/>
 
-    <script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="static/js/jquery-3.4.1.js"></script>
 
 </head>
 <body>

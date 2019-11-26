@@ -11,10 +11,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="../static/css/oder_main.css"/>
+    <link rel="stylesheet" href="static/css/oder_main.css"/>
 
-    <script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../static/js/showtime.js"></script>
+    <script type="text/javascript" src="static/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="static/js/showtime.js"></script>
 </head>
 <body>
 

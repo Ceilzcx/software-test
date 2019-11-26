@@ -23,7 +23,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 HttpSession session=request.getSession();
                 session.setAttribute("currentLoginShop", ShopEntity.currentLoginShop);
 //                request.getRequestDispatcher("html_main/real_order.jsp").forward(request, response);
-                response.sendRedirect("html_main/recipe_manager.jsp");
+                response.sendRedirect("sidebar.html");
             }
        } catch (BaseException e) {
 //            response.sendRedirect("login.jsp");
