@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="sofiwareWork.war">
+    <root id="archive" name="softwareWork.war">
       <element id="artifact" artifact-name="software-test:war exploded" />
     </root>
   </artifact>
