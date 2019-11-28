@@ -1,0 +1,114 @@
+#content{
+    width: 830px;
+    height: 700px;
+    margin: 0 25px 20px;
+    padding: 30px;
+    border: 1px #999999 solid;
+}
+#menu_info{
+    width: 500px;
+    margin: 0 auto;
+}
+
+#content>h3{
+    font-size: 20px;
+    border-bottom: 1px solid #999999;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    color: darkred;
+}
+
+.icon{
+    margin: 10px;
+    font-size: 16px;
+}
+
+.icon>input {
+    border: 1px #aaaaaa solid;
+    border-radius: 5px;
+    height: 37px;
+    width: 400px;
+    padding-left: 50px;
+    padding-right: 10px;
+}
+
+#recipe_name{background: url("../image/recipe_name.svg") 8px 6px no-repeat;}
+#recipe_price{background: url("../image/recipe_price.svg") 8px 6px no-repeat;}
+#recipe_remain{background: url("../image/recipe_remain.svg") 8px 6px no-repeat;}
+#recipe_discount{background: url("../image/recipe_discount.svg") 8px 6px no-repeat;}
+
+.icon>textarea{
+    height: 120px;
+    background: url("../image/recipe_notice.svg") 10px 5px no-repeat;
+    border: 1px #aaaaaa solid;
+    border-radius: 5px;
+    width: 400px;
+    padding: 10px 10px 10px 50px;
+}
+
+.update_file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    float: left;
+}
+.update_file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.update_file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+.file{
+    margin: 20px;
+    display: block;
+}
+
+.file_path input{
+    border: 1px #aaaaaa solid;
+    border-radius: 3px;
+    height: 30px;
+    width: 430px;
+    float: left;
+    margin-left: 40px;
+}
+
+.menu_img{
+    width: 350px;
+    height: 150px;
+    float: left;
+    margin-left: 20px;
+}
+
+.recipe_submit button{
+    width: 100px;
+    height: 35px;
+    background-color: #004974;
+    color: white;
+    border-radius: 3px;
+    margin: 20px;
+}
+
+#back{
+    float: right;
+    margin-right: 20px;
+}
+
+#ok{
+    float: right;
+    margin-right: 50px;
+}

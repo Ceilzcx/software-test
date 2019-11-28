@@ -1,0 +1,80 @@
+/*****************主界面*****************/
+
+#content{
+    width: 830px;
+    margin: 0 25px;
+}
+
+#content h3{
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+#content h4{
+    padding: 20px;
+    background-color: #cccccc;
+}
+
+#search{
+    height: 60px;
+    font-family: "微软雅黑", serif;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 20px 0;
+    margin-bottom: 10px;
+}
+
+.search_text input{
+    margin-left: 20px;
+    height: 30px;
+    width: 150px;
+    border: 1px solid #666666;
+    border-radius: 3px;
+}
+
+.search_checkBox>label{
+    margin-left: 30px;
+}
+
+.search_checkBox>select{
+    width: 100px;
+    height: 30px;
+    border: 1px solid #666666;
+    border-radius: 3px;
+}
+
+#search_button>input{
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}
+
+
+/*****************订单信息*****************/
+
+#orderDetail{
+    padding: 20px;
+}
+
+#orderDetail table{
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#orderDetail_title{
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#orderDetail_title>th{
+    padding: 10px 10px;
+    border-bottom: 1px solid #666666;
+}
+
+#orderDetail table tr td{
+    font-size: 12px;
+    padding: 10px 10px;
+}

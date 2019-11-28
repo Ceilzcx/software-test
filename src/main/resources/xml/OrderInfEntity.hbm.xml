@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.etc.model.OrderInfEntity" table="order_inf" schema="blm">
+        <id name="orderInfId">
+            <column name="order_inf_id" sql-type="int(11)"/>
+        </id>
+        <property name="listId">
+            <column name="list_id" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="orderRecipeNumber">
+            <column name="order_recipe_number" sql-type="int(11)" not-null="true"/>
+        </property>
+        <many-to-one name="order" class="com.etc.model.OrdersEntity" column="order_id" lazy="false" />
+        <many-to-one name="recipe" class="com.etc.model.RecipeEntity" column="recipe_id" lazy="false" />
+    </class>
+</hibernate-mapping>

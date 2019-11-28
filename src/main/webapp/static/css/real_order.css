@@ -1,0 +1,157 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    list-style-type: none;
+    /*去掉所有文本标签下划线*/
+    text-decoration: none;
+}
+
+#bg{
+    background-color: #eeeeee;
+}
+
+#main{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.title{
+    width: 100%;
+    padding: 0 20px;
+    background-color: #fff;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.title h2{
+    font-size: 15px;
+    float: left;
+    margin: 20px;
+}
+
+.title span{
+    float: right;
+    margin: 20px;
+}
+.title span a{
+    margin-left: 50px;
+    color: red;
+    font-weight: bold;
+}
+
+#status {
+    width: 80px;
+    height: 25px;
+    border: 1px solid #78C3F3;
+    border-radius: 3px;
+    float: right;
+    display: inline-flex;
+    margin: 20px 0;
+}
+
+#content{
+    height: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-weight: normal;
+    background-color: #eeeeee;
+}
+
+thead{
+    display: table-header-group;
+    vertical-align: middle;
+}
+
+thead>tr{
+    text-align: center;
+    margin: 10px 0;
+    display: table-row;
+    vertical-align: inherit;
+}
+
+thead>tr>th{
+    height: 40px;
+    line-height: 40px;
+}
+
+#blank{
+    height: 20px;
+    background-color: #fff;
+}
+
+.split_row{
+    line-height: 32px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.split_row span{
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    padding: 2px 0 0;
+    margin-left: 30px;
+}
+
+.order{
+    border: 1px solid #dddddd;
+    padding: 10px;
+    max-height: 80px;
+}
+
+.order_item img{
+    width: 80px;
+    height: 60px;
+    float: left;
+    margin-left: 10px;
+}
+.order_recipe{
+    margin-left: 20px;
+    width: 60px;
+    float: left;
+}
+.order_num{
+    margin-left: 150px;
+    float: left;
+}
+
+.order td{
+    padding: 10px;
+    border-right: 1px solid #dddddd;
+    text-align: center;
+}
+
+.order_operation button{
+    width: 110px;
+    border: 1px #cccccc solid;
+    background-color: #dddddd;
+    border-radius: 5px;
+    height: 35px;
+    padding-left: 25px;
+    margin: 5px;
+}
+.order_operation button:hover{
+    cursor: pointer;
+    color: red;
+    border: 1px red solid;
+}
+#ok{background: url("../image/order_ok.svg") 10px 5px no-repeat;}
+#cancel{background: url("../image/order_cancel.svg") 10px 5px no-repeat;}
+
+#skipPage{
+    float: right;
+    margin: 10px;
+    background-color: #fff;
+}
+
+#skipPage span{
+    margin-right: 10px;
+}

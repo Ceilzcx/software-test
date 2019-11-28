@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.etc.model.ShopEvaluateEntity" table="shop_evaluate" schema="blm">
+        <id name="shopEvaluateId">
+            <column name="shop_evaluate_id" sql-type="int(11)"/>
+        </id>
+        <property name="shopEvaluateOrder">
+            <column name="shop_evaluate_order" sql-type="int(11)" not-null="false"/>
+        </property>
+        <property name="shopGrade">
+            <column name="shop_grade" sql-type="float" precision="-1" not-null="false"/>
+        </property>
+        <property name="shopEvaluateContent">
+            <column name="shop_evaluate_content" sql-type="varchar(1024)" length="1024" not-null="false"/>
+        </property>
+        <property name="shopEvaluateImage">
+            <column name="shop_evaluate_image" sql-type="longblob" not-null="false"/>
+        </property>
+        <many-to-one name="shop" class="com.etc.model.ShopEntity" column="shop_id" lazy="false" />
+        <many-to-one name="user" class="com.etc.model.UserEntity" column="user_id" lazy="false" />
+    </class>
+</hibernate-mapping>
