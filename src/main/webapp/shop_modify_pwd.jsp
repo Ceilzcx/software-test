@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.etc.model.ErrorException" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2019/11/24
@@ -16,6 +16,19 @@
 
 </head>
 <body>
+
+    <%
+        String errorFlag = (String) session.getAttribute("errorFlag");
+        String errorMessage = (String) session.getAttribute("errorMessage");
+        String message = "";
+
+        if (errorFlag != null && errorMessage != null){
+            if(errorFlag.equals(ErrorException.MODIFYPWD_ERROR)) {
+                message = errorMessage;
+                session.setAttribute("errorMessage", "");
+            }
+        }
+    %>
 
     <h3>修改密码</h3>
 

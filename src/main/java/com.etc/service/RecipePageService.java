@@ -1,6 +1,5 @@
 package com.etc.service;
 
-import com.etc.model.PageBean;
 import com.etc.model.RecipeEntity;
 
 import java.util.List;

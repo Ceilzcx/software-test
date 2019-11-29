@@ -1,5 +1,6 @@
 <%@ page import="org.hibernate.Session" %>
-<%@ page import="com.etc.util.HibernateUtil" %><%--
+<%@ page import="com.etc.util.HibernateUtil" %>
+<%@ page import="com.etc.model.ErrorException" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2019/11/6
@@ -20,6 +21,19 @@
 
 </head>
 <body>
+
+    <%
+        String errorFlag = (String) session.getAttribute("errorFlag");
+        String errorMessage = (String) session.getAttribute("errorMessage");
+        String message = "";
+
+        if (errorFlag != null && errorMessage != null){
+            if(errorFlag.equals(ErrorException.LOGIN_ERROR)) {
+                message = errorMessage;
+                session.setAttribute("errorMessage", "");
+            }
+        }
+    %>
 
     <div class="login">
         <div class="login_header">

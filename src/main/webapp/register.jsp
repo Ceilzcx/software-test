@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.etc.model.ErrorException" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2019/11/6
@@ -14,6 +14,19 @@
 
 </head>
 <body>
+
+    <%
+        String errorFlag = (String) session.getAttribute("errorFlag");
+        String errorMessage = (String) session.getAttribute("errorMessage");
+        String message = "";
+
+        if (errorFlag != null && errorMessage != null){
+            if(errorFlag.equals(ErrorException.REGISTER_ERROR)) {
+                message = errorMessage;
+                session.setAttribute("errorMessage", "");
+            }
+        }
+    %>
 
     <div class="register">
         <div class="register_header">
