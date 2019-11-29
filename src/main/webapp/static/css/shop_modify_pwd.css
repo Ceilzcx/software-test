@@ -33,7 +33,13 @@
 #ok{
     width: 100px;
     height: 30px;
-    background-color: #cccccc;
+    background-color: cadetblue;
     border-radius: 3px;
     margin-top: 10px;
+    margin-left: -210px;
+}
+.modifyPwd_exception p{
+    color: red;
+    font-size: 12px;
+    margin-left: 50px;
 }

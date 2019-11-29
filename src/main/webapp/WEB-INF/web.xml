@@ -91,11 +91,7 @@
     </servlet-mapping>
 
     <error-page>
-        <location>/login.jsp</location>
-    </error-page>
-
-    <error-page>
-        <location>/register.jsp</location>
+        <location>/errorPage.jsp</location>
     </error-page>
 
     <!-- <listener>

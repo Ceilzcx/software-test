@@ -22,7 +22,7 @@
     <div id="main">
 
         <div class="title">
-            <h2>处理订单</h2>
+            <h2>订单处理</h2>
 
             <span><a href="sidebar.html">返回</a></span>
             <select id="status">

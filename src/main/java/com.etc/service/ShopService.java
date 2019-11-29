@@ -54,7 +54,9 @@ public class ShopService {
     }
 
     public boolean modifyPwd(ShopEntity shop, String shopPwd1, String shopPwd2) throws BaseException {
-        if (shopPwd1.equals(shopPwd2) == false) {
+        if (shopPwd1.equals("") || shopPwd2.equals(""))
+            throw new BaseException("密码输入为空");
+        if (!shopPwd1.equals(shopPwd2)) {
             throw new BaseException("密码不匹配");
         }
         ShopEntity.currentLoginShop = shopDAO.modifyPwd(shop, shopPwd1);
