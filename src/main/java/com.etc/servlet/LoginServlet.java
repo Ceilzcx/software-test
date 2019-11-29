@@ -1,5 +1,6 @@
 package com.etc.servlet;
 
+import com.etc.model.ErrorException;
 import com.etc.model.ShopEntity;
 import com.etc.service.ShopService;
 import com.etc.util.BaseException;
@@ -20,9 +21,10 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             if (shopService.login(shopTel, shopPwd)){
                 HttpSession session=request.getSession();
                 session.setAttribute("currentLoginShop", ShopEntity.currentLoginShop);
-                response.sendRedirect("sidebar.html");
+                response.sendRedirect("sidebar.html#information");
             }
         } catch (BaseException e) {
+            request.getSession().setAttribute("errorFlag", ErrorException.LOGIN_ERROR);
             throw new ServletException(e.getMessage());
         }
 

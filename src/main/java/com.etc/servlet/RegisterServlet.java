@@ -1,5 +1,6 @@
 package com.etc.servlet;
 
+import com.etc.model.ErrorException;
 import com.etc.service.ShopService;
 import com.etc.util.BaseException;
 
@@ -17,8 +18,6 @@ public class RegisterServlet extends HttpServlet {
         String pwd1 = request.getParameter("password1");
         String pwd2 = request.getParameter("password2");
 
-        System.out.println(telephone);
-
         ShopService shopService=new ShopService();
         try {
             System.out.println("log1");
@@ -27,6 +26,7 @@ public class RegisterServlet extends HttpServlet {
                 response.sendRedirect("login.jsp");
             }
         } catch (BaseException e) {
+            request.getSession().setAttribute("errorFlag", ErrorException.REGISTER_ERROR);
             throw new ServletException(e.getMessage());
         }
     }

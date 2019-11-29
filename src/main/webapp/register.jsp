@@ -5,7 +5,7 @@
   Time: 14:22
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" isErrorPage="true" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
     <title>Title</title>
@@ -37,7 +37,7 @@
                 <section class="register_text"><input type="tel" maxlength="11" name="telephone" placeholder="手机号"></section>
                 <section class="register_text"><input type="password" maxlength="20" name="password" placeholder="密码"></section>
                 <section class="register_text"><input type="password" maxlength="20" name="password" placeholder="密码"></section>
-                <div class="register_exception"><p><%=exception != null ? exception.getMessage() : ""%></p></div>
+                <div class="register_exception"><p><%=message%></p></div>
                 <button class="register_button">
                     注册
                 </button>
