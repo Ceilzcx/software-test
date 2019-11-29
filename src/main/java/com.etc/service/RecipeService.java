@@ -41,4 +41,9 @@ public class RecipeService {
     public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) throws BaseException {
         recipeDAO.modifyRecipe(recipe, recipeName.trim(), recipePrice, recipeNotice.trim(), recipeImage.trim(), recipeRemain, recipeDiscount);
     }
+
+    public InputStream imageInputStream(int id) {
+        return new RecipeDAO().byteToInputStream(id);
+    }
+
 }

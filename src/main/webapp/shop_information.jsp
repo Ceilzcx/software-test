@@ -59,7 +59,7 @@
 
         <style>
             #shop_trademark{
-                background:url("static/image/icon.jpg");
+                background:url("static/image/blm.png");
                 background-size: 100% 100%;
                 cursor: pointer;
             }
@@ -71,7 +71,7 @@
             </div>
 
             <div id="shop_trademark" >
-                <input type="file" alt="点击切换图标" name="shopTrademark">
+                <input type="file" alt="点击切换图标" name="shopTrademark" accept="image/*">
             </div>
         </div>
 

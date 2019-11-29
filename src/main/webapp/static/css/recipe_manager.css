@@ -94,6 +94,10 @@
     background: #e9f9ca;
 }
 
+.providerTable tr td img{
+    margin: 10px;
+}
+
 .firstTr {
     font-size: 14px;
     border: 1px solid #d6dfe6;

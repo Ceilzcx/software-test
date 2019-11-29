@@ -41,17 +41,18 @@
         <!--供应商操作表格-->
         <table class="providerTable" cellpadding="0" cellspacing="0" id="table_Data">
             <tr class="firstTr">
-                <th width=""><img></th>
-                <th width="25%">菜谱名称</th>
+                <th width="15%">菜谱图片</th>
+                <th width="15%">菜谱名称</th>
                 <th width="12.5%">价格</th>
                 <th width="12.5%">月销售</th>
                 <th width="12.5%">余量</th>
                 <th width="12.5%">折扣</th>
-                <th width="25%">操作</th>
+                <th width="20%">操作</th>
             </tr>
 
             <%for (int i = 0; i < entities.size(); i++) {%>
             <tr>
+                <td><img align="center" style="width: 50px;height: 50px" src="GetRecipeImgServlet?id=<%=entities.get(i).getRecipeId()%>"></td>
                 <td><%=entities.get(i).getRecipeName()%></td>
                 <td><%=entities.get(i).getRecipePrice()%></td>
                 <td><%=entities.get(i).getMonthlySale()%></td>

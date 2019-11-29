@@ -9,10 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -221,6 +218,37 @@ public class RecipeDAO {
             }
         }
         return recipeEntities;
+    }
+
+    public InputStream byteToInputStream(int id) {
+        /**
+         *
+         *
+         * @description: 根据菜返回图片的输入流
+         * @param recipeEntity
+         * @return: java.io.InputStream
+         * @author: hejw
+         * @time: 2019/11/29 21:08
+         */
+        Session session = null;
+        Transaction tx = null;
+        InputStream inputStream = null;
+        try {
+            session = HibernateUtil.getSession();
+            tx = session.beginTransaction();
+            String hql = "from RecipeEntity where recipeId = " + id + "";
+            inputStream = new ByteArrayInputStream(((RecipeEntity) session.createQuery(hql).list().get(0)).getRecipeImage());
+            tx.commit();
+        } finally {
+            try {
+                if (session != null) {
+                    session.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return inputStream;
     }
 
     public static void main(String[] args) {

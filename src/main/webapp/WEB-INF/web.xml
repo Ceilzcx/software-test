@@ -99,6 +99,24 @@
         <url-pattern>/ModifyPwdServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>GetRecipeImgServlet</servlet-name>
+        <servlet-class>com.etc.servlet.GetRecipeImgServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetRecipeImgServlet</servlet-name>
+        <url-pattern>/GetRecipeImgServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetShopImgServlet</servlet-name>
+        <servlet-class>com.etc.servlet.GetShopImgServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetShopImgServlet</servlet-name>
+        <url-pattern>/GetShopImgServlet</url-pattern>
+    </servlet-mapping>
+
     <error-page>
         <location>/errorPage.jsp</location>
     </error-page>

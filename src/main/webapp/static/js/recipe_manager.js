@@ -18,7 +18,7 @@ $(document).ready(goPage(1));
 function goPage(pno) {
     var idTable = document.getElementById("table_Data");
     var rowNum = idTable.rows.length;//获取行数
-    var pageSize = 10;//每页显示tr行数
+    var pageSize = 5;//每页显示tr行数
     var totalPage = parseInt(rowNum%pageSize==0 ? rowNum/pageSize : rowNum/pageSize+1);//总页数
 
     var currentPage = pno;//当前页数
