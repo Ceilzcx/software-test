@@ -26,8 +26,12 @@
 <form action="notice" method="post">
 
     <div id="notice_content">
-        <textarea class="notice" id="notice" name="notice" value="<%=content == null ? "" : content%>"></textarea>
+        <textarea class="notice" id="notice" name="notice"></textarea>
     </div>
+
+    <script>
+        $("#notice").val("<%=content == null ? "" : content%>")
+    </script>
 
     <div class="notice_button">
         <button id="ok">保存</button>

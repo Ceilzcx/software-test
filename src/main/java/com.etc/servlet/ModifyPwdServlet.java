@@ -37,4 +37,3 @@ public class ModifyPwdServlet extends HttpServlet {
         doPost(request, response);
     }
 }
-

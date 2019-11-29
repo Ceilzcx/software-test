@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.etc.model.ShopEntity" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2019/11/17
@@ -17,62 +17,67 @@
 </head>
 <body>
 
-<h3>店家信息</h3>
+    <%
+        ShopEntity shopEntity = (ShopEntity) session.getAttribute("currentLoginShop");
+    %>
 
-<form action="shopInformationModify" id="shop_information" method="post" enctype="multipart/form-data">
+    <h3>店家信息</h3>
 
-    <div class="information">
-        <div class="label_name">
-            <label>店铺名称:</label>
+    <form action="shopInformationModify" id="shop_information" method="post" enctype="multipart/form-data">
+
+        <div class="information">
+            <div class="label_name">
+                <label>店铺名称:</label>
+            </div>
+
+            <input type="text" name="shopName" value="<%=shopEntity.getShopName()%>">
         </div>
 
-        <input type="text" name="shopName">
-    </div>
+        <div class="information">
+            <div class="label_name">
+                <label>地址:</label>
+            </div>
 
-    <div class="information">
-        <div class="label_name">
-            <label>地址:</label>
+            <input type="text" name="shopAddr" value="<%=shopEntity.getShopAddress()%>">
         </div>
 
-        <input type="text" name="shopAddr">
-    </div>
+        <div class="information">
+            <div class="label_name">
+                <label>联系电话:</label>
+            </div>
 
-    <div class="information">
-        <div class="label_name">
-            <label>联系电话:</label>
+            <label><%=shopEntity.getShopTel()%></label>
         </div>
 
-        <label>15669032560</label>
-    </div>
+        <div class="information">
+            <div class="label_name">
+                <label>评分:</label>
+            </div>
 
-    <div class="information">
-        <div class="label_name">
-            <label>评分:</label>
+            <label><%=shopEntity.getShopCore()%></label>
         </div>
 
-        <label>9.4</label>
-    </div>
+        <style>
+            #shop_trademark{
+                background:url("static/image/icon.jpg");
+                background-size: 100% 100%;
+                cursor: pointer;
+            }
+        </style>
 
-    <style>
-        #shop_trademark{
-            background:url("static/image/icon.jpg");
-            background-size: 100% 100%;
-            cursor: pointer;
-        }
-    </style>
+        <div class="information" id="information_img">
+            <div class="label_name">
+                <label>图标:</label>
+            </div>
 
-    <div class="information" id="information_img">
-        <div class="label_name">
-            <label>图标:</label>
+            <div id="shop_trademark" >
+                <input type="file" alt="点击切换图标" name="shopTrademark">
+            </div>
         </div>
 
-        <div id="shop_trademark" >
-            <input type="file" alt="点击切换图标" name="shopTrademark">
-        </div>
-    </div>
+        <input type="submit" value="保存">
 
-    <input type="submit" value="保存">
+    </form>
 
-</form>
 </body>
 </html>
