@@ -90,12 +90,17 @@
         <url-pattern>/addRecipeServlet</url-pattern>
     </servlet-mapping>
 
-    <error-page>
-        <location>/login.jsp</location>
-    </error-page>
+    <servlet>
+        <servlet-name>ModifyPwdServlet</servlet-name>
+        <servlet-class>com.etc.servlet.ModifyPwdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModifyPwdServlet</servlet-name>
+        <url-pattern>/ModifyPwdServlet</url-pattern>
+    </servlet-mapping>
 
     <error-page>
-        <location>/register.jsp</location>
+        <location>/errorPage.jsp</location>
     </error-page>
 
     <!-- <listener>
