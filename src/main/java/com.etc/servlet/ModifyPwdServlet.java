@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -24,7 +25,9 @@ public class ModifyPwdServlet extends HttpServlet {
         ShopService service = new ShopService();
 
         try {
-            service.modifyPwd((ShopEntity) request.getSession().getAttribute("CurrentLoginShop"), pwd1, pwd2);
+            service.modifyPwd((ShopEntity) request.getSession().getAttribute("currentLoginShop"), pwd1, pwd2);
+            HttpSession session=request.getSession();
+            session.setAttribute("currentLoginShop", ShopEntity.currentLoginShop);
             response.sendRedirect("sidebar.html#modify_pwd");
         } catch (BaseException e) {
             request.getSession().setAttribute("errorFlag", ErrorException.MODIFYPWD_ERROR);
