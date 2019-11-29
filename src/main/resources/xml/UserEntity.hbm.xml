@@ -21,7 +21,7 @@
             <column name="user_address" sql-type="varchar(100)" length="100" not-null="false"/>
         </property>
         <property name="userImage">
-            <column name="user_image" sql-type="varchar(1024)" length="1024" not-null="false"/>
+            <column name="user_image" sql-type="longblob" not-null="false"/>
         </property>
         <set name="orders" lazy="false">
             <key column="shop_id" />

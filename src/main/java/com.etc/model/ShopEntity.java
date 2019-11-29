@@ -14,7 +14,7 @@ public class ShopEntity {
     private String shopTel;
     private Double shopCore;
     private String shopNotice;
-    private String shopTrademark;
+    private byte[] shopTrademark;
     private String shopStatus;
     private Set<RecipeEntity> recipes;
     private Set<ActivityEntity> activities;
@@ -124,12 +124,12 @@ public class ShopEntity {
     }
 
     @Basic
-    @Column(name = "shop_trademark", nullable = true, length = 1024)
-    public String getShopTrademark() {
+    @Column(name = "shop_trademark", nullable = true)
+    public byte[] getShopTrademark() {
         return shopTrademark;
     }
 
-    public void setShopTrademark(String shopTrademark) {
+    public void setShopTrademark(byte[] shopTrademark) {
         this.shopTrademark = shopTrademark;
     }
 

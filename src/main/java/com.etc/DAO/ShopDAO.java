@@ -7,6 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
 /**
  * @description:
  * @author: hejw
@@ -33,6 +36,7 @@ public class ShopDAO {
             String hql = "from ShopEntity where shopTel='" + shopTel + "' and shopPwd='" + shopPwd + "'";
             Query query = session.createQuery(hql);
             if (query.list().size() != 0) {
+                System.out.println(true);
                 ShopEntity s = (ShopEntity) query.list().get(0);
                 ShopEntity tmpShop = session.get(ShopEntity.class, s.getShopId());
                 tmpShop.setShopStatus("在线");
@@ -42,7 +46,7 @@ public class ShopDAO {
                 throw new BaseException("手机号或密码错误");
             }
         } catch (BaseException e) {
-            e.printStackTrace();
+            throw new BaseException(e.getMessage());
         } finally {
             try {
                 if (session != null) {
@@ -85,7 +89,7 @@ public class ShopDAO {
             }
             tx.commit();
         } catch (BaseException e) {
-            e.printStackTrace();
+            throw  new BaseException(e.getMessage());
         } finally {
             try {
                 if (session != null) {
@@ -158,15 +162,19 @@ public class ShopDAO {
                     throw new BaseException("店名已存在");
                 }
             }
+            FileInputStream fis = new FileInputStream(shopTrademark);
+            byte[] byteArray = new byte[fis.available()];
             ShopEntity s = session.get(ShopEntity.class, shop.getShopId());
             s.setShopPwd(shopPwd);
             s.setShopName(shopName);
             s.setShopAddress(shopAddr);
-            s.setShopTrademark(shopTrademark); //存疑
+            s.setShopTrademark(byteArray); //存疑
             tmpShop = s;
             tx.commit();
-        } catch (BaseException e) {
-            e.printStackTrace();
+        } catch (BaseException | IOException e) {
+            if (e instanceof IOException)
+                throw new BaseException("图片上传失败");
+            throw  new BaseException(e.getMessage());
         } finally {
             try {
                 if (session != null) {

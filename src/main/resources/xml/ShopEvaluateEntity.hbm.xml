@@ -18,7 +18,7 @@
             <column name="shop_evaluate_content" sql-type="varchar(1024)" length="1024" not-null="false"/>
         </property>
         <property name="shopEvaluateImage">
-            <column name="shop_evaluate_image" sql-type="varchar(1024)" length="1024" not-null="false"/>
+            <column name="shop_evaluate_image" sql-type="longblob" not-null="false"/>
         </property>
         <many-to-one name="shop" class="com.etc.model.ShopEntity" column="shop_id" lazy="false" />
         <many-to-one name="user" class="com.etc.model.UserEntity" column="user_id" lazy="false" />

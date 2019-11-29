@@ -9,7 +9,7 @@ public class ShopEvaluateEntity {
     private Integer shopEvaluateOrder;
     private Double shopGrade;
     private String shopEvaluateContent;
-    private String shopEvaluateImage;
+    private byte[] shopEvaluateImage;
     private ShopEntity shop;
     private UserEntity user;
 
@@ -70,12 +70,12 @@ public class ShopEvaluateEntity {
     }
 
     @Basic
-    @Column(name = "shop_evaluate_image", nullable = true, length = 1024)
-    public String getShopEvaluateImage() {
+    @Column(name = "shop_evaluate_image", nullable = true)
+    public byte[] getShopEvaluateImage() {
         return shopEvaluateImage;
     }
 
-    public void setShopEvaluateImage(String shopEvaluateImage) {
+    public void setShopEvaluateImage(byte[] shopEvaluateImage) {
         this.shopEvaluateImage = shopEvaluateImage;
     }
 

@@ -66,12 +66,25 @@
       <artifactId>activation</artifactId>
       <version>1.1.1</version>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-web</artifactId>-->
+<!--      <version>4.3.12.RELEASE</version>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-web &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-web</artifactId>-->
+<!--      <version>5.2.1.RELEASE</version>-->
+<!--    </dependency>-->
+
+
 
 
   </dependencies>
 
   <build>
-    <finalName>sofiwareWork</finalName>
+    <finalName>softwareWork</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
@@ -105,5 +118,16 @@
         </plugin>
       </plugins>
     </pluginManagement>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                  <source>8</source>
+                  <target>8</target>
+              </configuration>
+          </plugin>
+      </plugins>
   </build>
+
 </project>

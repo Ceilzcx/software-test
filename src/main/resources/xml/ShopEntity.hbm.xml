@@ -27,7 +27,7 @@
             <column name="shop_notice" sql-type="varchar(500)" length="500" not-null="false"/>
         </property>
         <property name="shopTrademark">
-            <column name="shop_trademark" sql-type="varchar(1024)" length="1024" not-null="false"/>
+            <column name="shop_trademark" sql-type="longblob" not-null="false"/>
         </property>
         <property name="shopStatus">
             <column name="shop_status" sql-type="varchar(20)" length="20" not-null="false"/>

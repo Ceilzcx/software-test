@@ -1,3 +1,4 @@
+
 #content{
     width: 830px;
     height: 500px;
@@ -58,6 +59,7 @@
     display: inline-block;
 }
 .search a:hover,.search a:active{
+    cursor: pointer;
     background-color: #0778c5;
 }
 .search span{
@@ -162,5 +164,20 @@
 }
 .removeMain a:hover,.removeMain a:active{
     background: #679016;
+}
 
+.skipPage{
+    float: right;
+    margin-top: 20px;
+}
+.btn{
+    margin: 5px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    /*border: 1px solid #78C3F3;*/
+    background-color: #47acf1;
+    color: white;
+}
+.btn:hover{
+    cursor: pointer;
 }

@@ -36,7 +36,7 @@ public class RecipeService {
         return recipeDAO.loadAllRecipes(recipe.getShop());
     }
 
-    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, Integer monthlySale, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) {
+    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, Integer monthlySale, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) throws BaseException {
         recipeDAO.modifyRecipe(recipe, recipeName, recipePrice, monthlySale, recipeNotice, recipeImage, recipeRemain, recipeDiscount);
     }
 }

@@ -22,7 +22,7 @@
 #shop_information>input{
     width: 120px;
     height: 35px;
-    margin-top: 10px;
+    margin-top: 15px;
     background-color: cadetblue;
 }
 
@@ -52,7 +52,7 @@
 }
 
 #shop_trademark{
-    width: 250px;
+    width: 300px;
     height:120px;
     float: left;
     cursor: pointer;

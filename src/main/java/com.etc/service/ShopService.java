@@ -8,6 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @description:
  * @author: hejw
@@ -20,6 +23,7 @@ public class ShopService {
         try {
             ShopEntity.currentLoginShop = shopDAO.login(shopTel, shopPwd);
         } catch (BaseException e) {
+            System.out.println(false);
             throw new BaseException(e.getMessage());
         }
         return true;
@@ -27,8 +31,19 @@ public class ShopService {
 
     public boolean reg(String shopPwd1, String shopPwd2, String shopTel) throws BaseException {
         try {
-            if (shopPwd1.equals(shopPwd2) == false) {
-                return false;
+            if ((shopPwd1 == null || shopPwd1.equals("")) || (shopPwd2 == null || shopPwd2.equals("")) || (shopTel == null || shopTel.equals(""))) {
+                throw new BaseException("请填写完整的注册信息");
+            }
+
+            shopTel = shopTel.trim();
+            String regex = ".*[a-zA-Z]+.*";
+            Matcher m = Pattern.compile(regex).matcher(shopTel);
+            if (shopTel.length() != 11 || m.matches()) {
+                throw new BaseException("请填写正确的手机号");
+            }
+
+            if (!shopPwd1.equals(shopPwd2)) {
+                throw new BaseException("密码不匹配");
             }
             ShopEntity.currentLoginShop = shopDAO.reg(shopPwd1, shopTel);
         } catch (BaseException e) {
@@ -58,4 +73,8 @@ public class ShopService {
         ShopEntity.currentLoginShop = shopDAO.announce(shop, notice);
     }
 
+    public static void main(String[] args) throws BaseException {
+        ShopService shopService = new ShopService();
+        shopService.reg("","","");
+    }
 }

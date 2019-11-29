@@ -21,4 +21,5 @@ public class OrdersService {
     public List<OrdersEntity> viewOrders(ShopEntity shop) {
         return ordersDAO.loadAllOrders(shop);
     }
+
 }

@@ -11,7 +11,7 @@ public class RecipeEntity {
     private Double recipePrice;
     private Integer monthlySale;
     private String recipeNotice;
-    private String recipeImage;
+    private byte[] recipeImage;
     private Integer recipeRemain;
     private Double recipeDiscount;
     private String recipeStatus;
@@ -84,12 +84,12 @@ public class RecipeEntity {
     }
 
     @Basic
-    @Column(name = "recipe_image", nullable = true, length = 1024)
-    public String getRecipeImage() {
+    @Column(name = "recipe_image", nullable = true)
+    public byte[] getRecipeImage() {
         return recipeImage;
     }
 
-    public void setRecipeImage(String recipeImage) {
+    public void setRecipeImage(byte[] recipeImage) {
         this.recipeImage = recipeImage;
     }
 

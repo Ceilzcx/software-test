@@ -30,7 +30,7 @@ public class OrdersDAO {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
             OrdersEntity o = session.get(OrdersEntity.class, order.getOrderId());
-            o.setOrderStatus("已完成");
+            o.setOrderStatus("完成");
             tx.commit();
         } finally {
             try {
@@ -73,4 +73,6 @@ public class OrdersDAO {
         }
         return ordersEntityList;
     }
+
+//    public List<OrdersEntity> search(ShopEntity shop,)
 }

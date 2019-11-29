@@ -11,7 +11,7 @@ public class UserEntity {
     private String userPwd;
     private String userTel;
     private String userAddress;
-    private String userImage;
+    private byte[] userImage;
     private Set<OrdersEntity> orders;
     private Set<ShopEvaluateEntity> shopEvaluations;
 
@@ -82,12 +82,12 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "user_image", nullable = true, length = 1024)
-    public String getUserImage() {
+    @Column(name = "user_image", nullable = true)
+    public byte[] getUserImage() {
         return userImage;
     }
 
-    public void setUserImage(String userImage) {
+    public void setUserImage(byte[] userImage) {
         this.userImage = userImage;
     }
 

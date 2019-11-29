@@ -21,7 +21,7 @@
             <column name="recipe_notice" sql-type="varchar(200)" length="200" not-null="false"/>
         </property>
         <property name="recipeImage">
-            <column name="recipe_image" sql-type="varchar(1024)" length="1024" not-null="false"/>
+            <column name="recipe_image" sql-type="longblob" not-null="false"/>
         </property>
         <property name="recipeRemain">
             <column name="recipe_remain" sql-type="int(11)" not-null="false"/>
