@@ -37,7 +37,7 @@ $(function() {
                 path = "setting";
                 break;
             default:
-                path = "shop_notice.jsp";
+                path = "shop_information.jsp";
                 break;
         }
         $("#content").load(path); //加载相对应的内容

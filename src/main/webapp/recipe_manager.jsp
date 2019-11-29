@@ -41,6 +41,7 @@
         <!--供应商操作表格-->
         <table class="providerTable" cellpadding="0" cellspacing="0" id="table_Data">
             <tr class="firstTr">
+                <th width=""><img></th>
                 <th width="25%">菜谱名称</th>
                 <th width="12.5%">价格</th>
                 <th width="12.5%">月销售</th>
