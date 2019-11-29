@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +22,7 @@ public class ShopService {
 
     public boolean login(String shopTel, String shopPwd) throws BaseException {
         try {
-            ShopEntity.currentLoginShop = shopDAO.login(shopTel, shopPwd);
+            ShopEntity.currentLoginShop = shopDAO.login(shopTel.trim(), shopPwd);
         } catch (BaseException e) {
             System.out.println(false);
             throw new BaseException(e.getMessage());
@@ -60,9 +61,9 @@ public class ShopService {
         return true;
     }
 
-    public boolean modifyShopMess(ShopEntity shop, String shopName, String shopPwd, String shopAddr, String shopTrademark) throws BaseException {
+    public boolean modifyShopMess(ShopEntity shop, String shopName, String shopAddr, InputStream shopTrademark) throws BaseException {
         try {
-            ShopEntity.currentLoginShop = shopDAO.modifyShopMess(shop, shopName, shopPwd, shopAddr, shopTrademark);
+            ShopEntity.currentLoginShop = shopDAO.modifyShopMess(shop, shopName.trim(), shopAddr.trim(), shopTrademark);
         } catch (BaseException e) {
             throw new BaseException(e.getMessage());
         }
@@ -70,11 +71,7 @@ public class ShopService {
     }
 
     public void announce(ShopEntity shop, String notice) {
-        ShopEntity.currentLoginShop = shopDAO.announce(shop, notice);
+        ShopEntity.currentLoginShop = shopDAO.announce(shop, notice.trim());
     }
 
-    public static void main(String[] args) throws BaseException {
-        ShopService shopService = new ShopService();
-        shopService.reg("","","");
-    }
 }

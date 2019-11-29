@@ -22,7 +22,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 session.setAttribute("currentLoginShop", ShopEntity.currentLoginShop);
                 response.sendRedirect("sidebar.html");
             }
-       } catch (BaseException e) {
+        } catch (BaseException e) {
             throw new ServletException(e.getMessage());
         }
 

@@ -23,16 +23,16 @@
 
 <h2>公告</h2>
 
-    <form action="notice" method="post">
+<form action="notice" method="post">
 
-        <div id="notice_content">
-            <textarea class="notice" id="notice" name="notice" value="<%=content == null ? "" : content%>"></textarea>
-        </div>
+    <div id="notice_content">
+        <textarea class="notice" id="notice" name="notice" value="<%=content == null ? "" : content%>"></textarea>
+    </div>
 
-        <div class="notice_button">
-            <button id="ok">保存</button>
-        </div>
-    </form>
+    <div class="notice_button">
+        <button id="ok">保存</button>
+    </div>
+</form>
 
 </body>
 </html>

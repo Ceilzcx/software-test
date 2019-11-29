@@ -7,6 +7,7 @@
     <class name="com.etc.model.OrderInfEntity" table="order_inf" schema="blm">
         <id name="orderInfId">
             <column name="order_inf_id" sql-type="int(11)"/>
+            <generator class="increment"/>
         </id>
         <property name="listId">
             <column name="list_id" sql-type="int(11)" not-null="true"/>

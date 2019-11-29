@@ -7,6 +7,7 @@
     <class name="com.etc.model.UserEntity" table="user" schema="blm">
         <id name="userId">
             <column name="user_id" sql-type="int(11)"/>
+            <generator class="increment"/>
         </id>
         <property name="userName">
             <column name="user_name" sql-type="varchar(50)" length="50" not-null="false"/>

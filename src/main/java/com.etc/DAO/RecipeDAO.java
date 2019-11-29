@@ -12,6 +12,7 @@ import org.hibernate.query.Query;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -51,7 +52,7 @@ public class RecipeDAO {
         return recipeList;
     }
 
-    public void addRecipe(ShopEntity shop, String recipeName, double recipePrice, String recipeNotice, String recipeImage, int recipeRemain, double recipeDiscount) throws BaseException {
+    public void addRecipe(ShopEntity shop, String recipeName, double recipePrice, String recipeNotice, InputStream recipeImage, int recipeRemain, double recipeDiscount) throws BaseException {
         /**
          *
          *
@@ -80,8 +81,8 @@ public class RecipeDAO {
             }
             hql = "from RecipeEntity where recipeName='" + recipeName + "' and recipeStatus like '" + "删除" + "'";
             query = session.createQuery(hql);
-            FileInputStream fis = new FileInputStream(recipeImage);
-            byte[] byteArray = new byte[fis.available()];
+            byte[] byteArray = new byte[recipeImage.available()];
+            System.out.println(byteArray.length);
             if (query.list().size() != 0) {
                 recipe = (RecipeEntity) query.list().get(0);
                 recipe = session.get(RecipeEntity.class, recipe.getRecipeId());
@@ -112,7 +113,7 @@ public class RecipeDAO {
         } catch (BaseException | IOException e) {
             if (e instanceof IOException)
                 throw new BaseException("图片上传失败");
-            throw  new BaseException(e.getMessage());
+            throw new BaseException(e.getMessage());
         } finally {
             try {
                 if (session != null) {
@@ -140,7 +141,7 @@ public class RecipeDAO {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
             RecipeEntity r = session.get(RecipeEntity.class, recipe.getRecipeId());
-            r.setRecipeStatus("已删除");
+            r.setRecipeStatus("删除");
             tx.commit();
         } finally {
             try {
@@ -153,7 +154,7 @@ public class RecipeDAO {
         }
     }
 
-    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, Integer monthlySale, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) throws BaseException {
+    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) throws BaseException {
         /**
          *
          *
@@ -161,7 +162,6 @@ public class RecipeDAO {
          * @param recipe
          * @param recipeName
          * @param recipePrice
-         * @param monthlySale
          * @param recipeNotice
          * @param recipeImage
          * @param recipeRemain
@@ -181,7 +181,6 @@ public class RecipeDAO {
             RecipeEntity r = session.get(RecipeEntity.class, recipe.getRecipeId());
             r.setRecipeName(recipeName);
             r.setRecipePrice(recipePrice);
-            r.setMonthlySale(monthlySale);
             r.setRecipeNotice(recipeNotice);
             r.setRecipeImage(byteArray);
             r.setRecipeRemain(recipeRemain);

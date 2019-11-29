@@ -8,6 +8,7 @@ import com.etc.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -22,9 +23,10 @@ public class RecipeService {
         return recipeDAO.loadAllRecipes(shop);
     }
 
-    public List<RecipeEntity> createRecipe(ShopEntity shop, String recipeName, double recipePrice, String recipeNotice, String recipeImage, int recipeRemain, double recipeDiscount) throws BaseException {
+    public List<RecipeEntity> createRecipe(ShopEntity shop, String recipeName, double recipePrice, String recipeNotice, InputStream recipeImage, int recipeRemain, double recipeDiscount) throws BaseException {
         try {
             recipeDAO.addRecipe(shop, recipeName, recipePrice, recipeNotice, recipeImage, recipeRemain, recipeDiscount);
+            System.out.println(shop.getShopName());
         } catch (BaseException e) {
             throw new BaseException(e.getMessage());
         }
@@ -36,7 +38,7 @@ public class RecipeService {
         return recipeDAO.loadAllRecipes(recipe.getShop());
     }
 
-    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, Integer monthlySale, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) throws BaseException {
-        recipeDAO.modifyRecipe(recipe, recipeName, recipePrice, monthlySale, recipeNotice, recipeImage, recipeRemain, recipeDiscount);
+    public void modifyRecipe(RecipeEntity recipe, String recipeName, Double recipePrice, String recipeNotice, String recipeImage, Integer recipeRemain, Double recipeDiscount) throws BaseException {
+        recipeDAO.modifyRecipe(recipe, recipeName.trim(), recipePrice, recipeNotice.trim(), recipeImage.trim(), recipeRemain, recipeDiscount);
     }
 }

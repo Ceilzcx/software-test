@@ -7,6 +7,7 @@
     <class name="com.etc.model.ActivityEntity" table="activity" schema="blm">
         <id name="activityId">
             <column name="activity_id" sql-type="int(11)"/>
+            <generator class="increment"/>
         </id>
         <property name="fullMoney">
             <column name="full_money" sql-type="float" precision="-1" not-null="true"/>

@@ -64,12 +64,30 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>RecipePageServlet</servlet-name>
-        <servlet-class>com.etc.servlet.FindRecipeByPageServlet</servlet-class>
+        <servlet-name>ShopInformationModifyServlet</servlet-name>
+        <servlet-class>com.etc.servlet.ShopInformationModifyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>RecipePageServlet</servlet-name>
-        <url-pattern>/RecipePageServlet</url-pattern>
+        <servlet-name>ShopInformationModifyServlet</servlet-name>
+        <url-pattern>/shopInformationModify</url-pattern>
+    </servlet-mapping>
+
+    <!--    <servlet>-->
+    <!--        <servlet-name>RecipePageServlet</servlet-name>-->
+    <!--        <servlet-class>com.etc.servlet.FindRecipeByPageServlet</servlet-class>-->
+    <!--    </servlet>-->
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>RecipePageServlet</servlet-name>-->
+    <!--        <url-pattern>/RecipePageServlet</url-pattern>-->
+    <!--    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>AddRecipeServlet</servlet-name>
+        <servlet-class>com.etc.servlet.AddRecipeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddRecipeServlet</servlet-name>
+        <url-pattern>/addRecipeServlet</url-pattern>
     </servlet-mapping>
 
     <error-page>

@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @description:
@@ -89,7 +90,7 @@ public class ShopDAO {
             }
             tx.commit();
         } catch (BaseException e) {
-            throw  new BaseException(e.getMessage());
+            throw new BaseException(e.getMessage());
         } finally {
             try {
                 if (session != null) {
@@ -102,7 +103,7 @@ public class ShopDAO {
         return shop;
     }
 
-    public ShopEntity modifyPwd(ShopEntity shop, String pwd){
+    public ShopEntity modifyPwd(ShopEntity shop, String pwd) {
         /**
          *
          *
@@ -135,14 +136,13 @@ public class ShopDAO {
         return tmpShop;
     }
 
-    public ShopEntity modifyShopMess(ShopEntity shop, String shopName, String shopPwd, String shopAddr, String shopTrademark) throws BaseException {
+    public ShopEntity modifyShopMess(ShopEntity shop, String shopName, String shopAddr, InputStream shopTrademark) throws BaseException {
         /**
          *
          *
          * @description: 修改店铺信息
          * @param shop
          * @param shopName
-         * @param shopPwd
          * @param shopAddr
          * @param shopTrademark
          * @return: void
@@ -155,17 +155,15 @@ public class ShopDAO {
         try {
             session = HibernateUtil.getSession();
             tx = session.beginTransaction();
-            if (shop.getShopName().equals(shopName) == false) {
+            if (shop.getShopName() != null && !shop.getShopName().equals(shopName)) {
                 String hql = "from ShopEntity where shopName='" + shopName + "'";
                 Query query = session.createQuery(hql);
                 if (query.list().size() != 0) {
                     throw new BaseException("店名已存在");
                 }
             }
-            FileInputStream fis = new FileInputStream(shopTrademark);
-            byte[] byteArray = new byte[fis.available()];
+            byte[] byteArray = new byte[shopTrademark.available()];
             ShopEntity s = session.get(ShopEntity.class, shop.getShopId());
-            s.setShopPwd(shopPwd);
             s.setShopName(shopName);
             s.setShopAddress(shopAddr);
             s.setShopTrademark(byteArray); //存疑
@@ -174,7 +172,7 @@ public class ShopDAO {
         } catch (BaseException | IOException e) {
             if (e instanceof IOException)
                 throw new BaseException("图片上传失败");
-            throw  new BaseException(e.getMessage());
+            throw new BaseException(e.getMessage());
         } finally {
             try {
                 if (session != null) {

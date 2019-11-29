@@ -13,6 +13,7 @@ import java.io.IOException;
 
 public class NoticeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         String notice = request.getParameter("notice");
         ShopService shopService=new ShopService();
         shopService.announce((ShopEntity) request.getSession().getAttribute("currentLoginShop"),notice);

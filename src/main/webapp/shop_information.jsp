@@ -17,62 +17,62 @@
 </head>
 <body>
 
-    <h3>店家信息</h3>
+<h3>店家信息</h3>
 
-    <form action="" id="shop_information">
+<form action="shopInformationModify" id="shop_information" method="post" enctype="multipart/form-data">
 
-        <div class="information">
-            <div class="label_name">
-                <label>店铺名称:</label>
-            </div>
-
-            <input type="text">
+    <div class="information">
+        <div class="label_name">
+            <label>店铺名称:</label>
         </div>
 
-        <div class="information">
-            <div class="label_name">
-                <label>地址:</label>
-            </div>
+        <input type="text" name="shopName">
+    </div>
 
-            <input type="text">
+    <div class="information">
+        <div class="label_name">
+            <label>地址:</label>
         </div>
 
-        <div class="information">
-            <div class="label_name">
-                <label>联系电话:</label>
-            </div>
+        <input type="text" name="shopAddr">
+    </div>
 
-            <label>15669032560</label>
+    <div class="information">
+        <div class="label_name">
+            <label>联系电话:</label>
         </div>
 
-        <div class="information">
-            <div class="label_name">
-                <label>评分:</label>
-            </div>
+        <label>15669032560</label>
+    </div>
 
-            <label>9.4</label>
+    <div class="information">
+        <div class="label_name">
+            <label>评分:</label>
         </div>
 
-        <style>
-            #shop_trademark{
-                background:url("static/image/icon.jpg");
-                background-size: 100% 100%;
-                cursor: pointer;
-            }
-        </style>
+        <label>9.4</label>
+    </div>
 
-        <div class="information" id="information_img">
-            <div class="label_name">
-                <label>图标:</label>
-            </div>
+    <style>
+        #shop_trademark{
+            background:url("static/image/icon.jpg");
+            background-size: 100% 100%;
+            cursor: pointer;
+        }
+    </style>
 
-            <div id="shop_trademark" >
-                <input type="file" name="" alt="点击切换图标">
-            </div>
+    <div class="information" id="information_img">
+        <div class="label_name">
+            <label>图标:</label>
         </div>
 
-        <input type="submit" value="保存">
+        <div id="shop_trademark" >
+            <input type="file" alt="点击切换图标" name="shopTrademark">
+        </div>
+    </div>
 
-    </form>
+    <input type="submit" value="保存">
+
+</form>
 </body>
 </html>

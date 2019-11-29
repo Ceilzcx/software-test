@@ -7,6 +7,7 @@
     <class name="com.etc.model.ShopEntity" table="shop" schema="blm">
         <id name="shopId">
             <column name="shop_id" sql-type="int(11)"/>
+            <generator class="increment"/>
         </id>
         <property name="shopName">
             <column name="shop_name" sql-type="varchar(50)" length="50" not-null="false"/>
