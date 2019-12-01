@@ -1,0 +1,13 @@
+#content{
+    width: 830px;
+    height: 500px;
+    border: 1px #999999 solid;
+    margin: 0 25px;
+    padding: 30px;
+}
+
+#content>h3{
+    font-size: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}

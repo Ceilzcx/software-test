@@ -17,8 +17,11 @@ public class GetShopImgServlet extends HttpServlet {
         ShopEntity shopEntity = (ShopEntity) request.getSession().getAttribute("currentLoginShop");
         byte[] buffer = shopEntity.getShopTrademark();
         ServletOutputStream sops = response.getOutputStream();
-        if (buffer != null)
+        if (buffer != null) {
+            System.out.println(buffer.length);
             sops.write(buffer);
+            sops.close();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

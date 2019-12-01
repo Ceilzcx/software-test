@@ -19,13 +19,16 @@ $(function() {
                 path = "order_manager.jsp";
                 break;
             case "#activity_manager":
-                path = "activity_manager.jsp";
+                path = "unFinish.html";
                 break;
             case "#user_analyze":
-                path = "user_analyze.jsp";
+                path = "unFinish.html";
+                break;
+            case "#order_analyze":
+                path = "order_analyze.jsp";
                 break;
             case "#evaluate_analyze":
-                path = "order_analyze.jsp";
+                path = "unFinish.html";
                 break;
             case "#information":
                 path = "shop_information.jsp";
@@ -33,8 +36,8 @@ $(function() {
             case "#modify_pwd":
                 path = "shop_modify_pwd.jsp";
                 break;
-            case "":
-                path = "setting";
+            case "setting":
+                path = "unFinish.html";
                 break;
             default:
                 path = "shop_information.jsp";
