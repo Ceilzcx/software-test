@@ -1,10 +1,8 @@
-$(document).ready(goPage(1));
-
 function goPage(pno) {
     var idTable = document.getElementById("table_Data");
     var rowNum = idTable.rows.length;//获取行数
     var pageSize = 10;//每页显示tr行数
-    var totalPage = parseInt(rowNum%pageSize==0 ? rowNum/pageSize : rowNum/pageSize+1);//总页数
+    var totalPage = parseInt((rowNum-1)%pageSize==0 ? (rowNum-1)/pageSize : (rowNum-1)/pageSize+1);//总页数
 
     var currentPage = pno;//当前页数
     var startRow = (currentPage-1)*pageSize+2;//开始显示时的行数

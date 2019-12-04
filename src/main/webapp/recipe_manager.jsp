@@ -1,6 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="com.etc.model.RecipeEntity" %>
-<%@ page import="com.etc.service.RecipeService" %>
 <%@ page import="com.etc.model.ShopEntity" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -23,11 +20,48 @@
 </head>
 <body>
 
-        <%
+       <%-- <%
             RecipeService service = new RecipeService();
             List<RecipeEntity> entities = service.viewRecipes((ShopEntity) session.getAttribute("currentLoginShop"));
 
-        %>
+        %>--%>
+
+        <script type="text/javascript">
+            var str = "<tr class=\"firstTr\">\n" +
+                "<th width=\"15%\">菜谱图片</th>\n" +
+                "<th width=\"15%\">菜谱名称</th>\n" +
+                "<th width=\"12.5%\">价格</th>\n" +
+                "<th width=\"12.5%\">月销售</th>\n" +
+                "<th width=\"12.5%\">余量</th>\n" +
+                "<th width=\"12.5%\">折扣</th>\n" +
+                "<th width=\"20%\">操作</th>\n" +
+                "</tr>";
+            $.ajax({
+                /*header: "Access-Control-Allow-Origin:*",*/
+                url: "http://localhost:8002/blm/Recipe/getRecipeList?shopId=<%=((ShopEntity) session.getAttribute("currentLoginShop")).getShopId()%>",
+                type: "GET",
+                dataType: 'json',
+                success: function (data) {
+                    for (var i=0; i<data.length; i++) {
+                        str += "<tr><td><img align=\"center\" style=\"width: 50px;height: 50px\" src=\""+"data:image/png;base64,"+data[i].recipeImage+"\"/></td>";
+                        str += "<td>"+data[i].recipeName+"</td>";
+                        str += "<td>"+data[i].recipePrice+"</td>";
+                        str += "<td>"+data[i].monthlySale+"</td>";
+                        str += "<td>"+data[i].recipeRemain+"</td>";
+                        str += "<td>"+data[i].recipeDiscount+"</td>";
+                        str += "<td><a href=\"#\"><img src=\"static/image/read.png\" alt=\"查看\" title=\"查看\"/></a>\n" +
+                            "<a href=\"#\"><img src=\"static/image/modify.png\" alt=\"修改\" title=\"修改\"/></a>\n" +
+                            "<a href=\"#\" class=\"removeProvider\"><img src=\"static/image/delete.png\" alt=\"删除\" title=\"删除\"/></a></td></tr>"
+                    }
+                    $("#table_Data").html(str);
+                    goPage(1)
+                },
+                error: function (e) {
+                    alert("数据未加载")
+                }
+
+            })
+        </script>
 
 
         <h2>我的菜谱 My Recipe</h2>
@@ -40,7 +74,7 @@
         </div>
         <!--供应商操作表格-->
         <table class="providerTable" cellpadding="0" cellspacing="0" id="table_Data">
-            <tr class="firstTr">
+            <%--<tr class="firstTr">
                 <th width="15%">菜谱图片</th>
                 <th width="15%">菜谱名称</th>
                 <th width="12.5%">价格</th>
@@ -64,7 +98,7 @@
                     <a href="#" class="removeProvider"><img src="static/image/delete.png" alt="删除" title="删除"/></a>
                 </td>
             </tr>
-            <%}%>
+            <%}%>--%>
 
         </table>
 

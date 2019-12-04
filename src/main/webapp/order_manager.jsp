@@ -1,17 +1,12 @@
-<%@ page import="com.etc.service.OrdersService" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.etc.model.OrdersEntity" %>
 <%@ page import="com.etc.model.ShopEntity" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="com.etc.model.OrderInfEntity" %>
-<%@ page import="java.util.Set" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2019/11/24
   Time: 10:20
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -25,11 +20,35 @@
 </head>
 <body>
 
-    <%
-        OrdersService service = new OrdersService();
-        List<OrdersEntity> entities = service.viewOrders((ShopEntity) session.getAttribute("currentLoginShop"));
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    %>
+    <script type="text/javascript">
+        var str = "<tr class=\"firstTr\">\n" +
+            "<th width=\"20%\">订单序号</th>\n" +
+            "<th width=\"15%\">用户名称</th>\n" +
+            "<th width=\"40%\">订单详情</th>\n" +
+            "<th width=\"25%\">下单时间</th>\n" +
+            "</tr>";
+        $.ajax({
+            /*header: "Access-Control-Allow-Origin:*",*/
+            url: "http://localhost:8002/blm/OrderUndone/getOrderDoneList?shopId=<%=((ShopEntity) session.getAttribute("currentLoginShop")).getShopId()%>",
+            type: "GET",
+            dataType: 'json',
+            success: function (data) {
+                for (var i=0; i<data.length; i++) {
+                    str += "<tr><td>"+data[i].orderId+"</td>\n" +
+                        "<td>"+data[i].userName+"</td>\n" +
+                        "<td>"+data[i].recipeName+" X"+data[i].orderRecipeNumber+"</td>\n" +
+                        "<td>"+data[i].orderStartTime+"</td></tr>"
+                }
+                $("#table_Data").html(str);
+                goPage(1)
+            },
+            error: function () {
+                alert("数据未加载")
+            }
+
+        })
+    </script>
+
 
     <h2>我的订单 My Order</h2>
 
@@ -40,13 +59,8 @@
     </div>
     <!--供应商操作表格-->
     <table class="providerTable" cellpadding="0" cellspacing="0" id="table_Data">
-        <tr class="firstTr">
-            <th width="20%">订单序号</th>
-            <th width="15%">用户名称</th>
-            <th width="40%">订单详情</th>
-            <th width="25%">下单时间</th>
-        </tr>
-        <%for (int i = 0; i < entities.size(); i++) {
+
+        <%--<%for (int i = 0; i < entities.size(); i++) {
             Set<OrderInfEntity> infEntities = entities.get(i).getOrderInfs();
             StringBuilder builder = new StringBuilder();
             for (OrderInfEntity entity: infEntities) {
@@ -60,7 +74,7 @@
             <td><%=builder.toString()%></td>
             <td><%=sdf.format(entities.get(i).getOrderFinishTime())%></td>
         </tr>
-        <%}%>
+        <%}%>--%>
 
     </table>
 

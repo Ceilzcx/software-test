@@ -1,4 +1,5 @@
-<%@ page import="com.etc.model.ShopEntity" %><%--
+<%@ page import="com.etc.model.ShopEntity" %>
+<%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2019/11/17

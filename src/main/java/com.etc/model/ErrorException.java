@@ -7,4 +7,6 @@ public interface ErrorException {
     String MODIFY_SHOPINFO_ERROR = "4";
     String RECIPEADD_ERROR = "5";
 
+    void add();
+
 }
